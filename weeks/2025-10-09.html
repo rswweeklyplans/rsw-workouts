@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week of Oct 11, 2025 — Interactive Workout</title>
+<style>
+body { background: #F1F0EC; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.4; }
+header { background: #6C7653; color: #fff; padding: 10px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; }
+button { background: #C28511; color: #fff; border: none; padding: 12px; font-size: 16px; cursor: pointer; min-height: 44px; }
+h1 { margin: 0; font-size: 20px; }
+.container { max-width: 980px; margin: 0 auto; padding: 20px; }
+.tabs { display: flex; justify-content: space-around; margin-bottom: 20px; }
+.tab { background: #C28511; color: #fff; padding: 10px; cursor: pointer; text-align: center; flex: 1; }
+.tab.active { background: #6C7653; }
+section { display: none; }
+section.active { display: block; }
+table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+th, td { padding: 8px; text-align: left; }
+th { background: #C28511; color: #fff; }
+td { background: #fff; border: 1px solid #ddd; }
+input, select, textarea { width: 100%; padding: 10px; font-size: 16px; box-sizing: border-box; }
+textarea { resize: vertical; }
+@media (max-width: 600px) {
+  table thead { display: none; }
+  table, tbody, tr, td { display: block; width: 100%; }
+  tr { background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 10px; margin-bottom: 12px; }
+  td::before { content: attr(data-label); display: block; font-size: 12px; font-weight: 700; color: #6c6a63; text-transform: uppercase; letter-spacing: .04em; margin: 0 0 4px; }
+  .tabs { flex-direction: column; }
+  .tab, button { width: 100%; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Week of Oct 11, 2025 — Interactive Workout</h1>
+  <div>
+    <button onclick="resetForm()">Reset</button>
+    <button onclick="window.print()">Download</button>
+  </div>
+</header>
+<div class="container">
+  <div class="tabs">
+    <div class="tab active" onclick="showTab(1)">Day 1</div>
+    <div class="tab" onclick="showTab(2)">Day 2</div>
+    <div class="tab" onclick="showTab(3)">Day 3</div>
+  </div>
+  <section id="day1" class="active">
+    <h2>Warm-up</h2>
+    <ul>
+      <li><input type="checkbox" data-bind="warmup1"> Jumping Jacks</li>
+      <li><input type="checkbox" data-bind="warmup2"> Arm Circles</li>
+      <li><input type="checkbox" data-bind="warmup3"> Leg Swings</li>
+    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>Exercise</th>
+          <th>Target Reps</th>
+          <th>Actual Reps</th>
+          <th>Weight</th>
+          <th>Equipment</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Exercise">
+            <select onchange="updateEquipment(1, 1)" data-bind="d1r1_sel">
+              <option value="Goblet Squat">🟢 Beginner: Goblet Squat</option>
+              <option value="Front Squat">🔴 Advanced: Front Squat</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">10</td>
+          <td data-label="Actual Reps"><input type="number" data-bind="d1r1_reps"></td>
+          <td data-label="Weight"><input type="text" data-bind="d1r1_w"></td>
+          <td data-label="Equipment"><input type="text" readonly data-bind="d1r1_eq"></td>
+          <td data-label="Notes"><textarea data-bind="d1r1_n"></textarea></td>
+        </tr>
+        <tr>
+          <td data-label="Exercise">
+            <select onchange="updateEquipment(1, 2)" data-bind="d1r2_sel">
+              <option value="Bodyweight Reverse Lunge">🟢 Beginner: Bodyweight Reverse Lunge</option>
+              <option value="Bulgarian Split Squat">🔴 Advanced: Bulgarian Split Squat</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">12</td>
+          <td data-label="Actual Reps"><input type="number" data-bind="d1r2_reps"></td>
+          <td data-label="Weight"><input type="text" data-bind="d1r2_w"></td>
+          <td data-label="Equipment"><input type="text" readonly data-bind="d1r2_eq"></td>
+          <td data-label="Notes"><textarea data-bind="d1r2_n"></textarea></td>
+        </tr>
+        <tr>
+          <td data-label="Exercise">
+            <select onchange="updateEquipment(1, 3)" data-bind="d1r3_sel">
+              <option value="Glute Bridge">🟢 Beginner: Glute Bridge</option>
+              <option value="Barbell Hip Thrust">🔴 Advanced: Barbell Hip Thrust</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">15</td>
+          <td data-label="Actual Reps"><input type="number" data-bind="d1r3_reps"></td>
+          <td data-label="Weight"><input type="text" data-bind="d1r3_w"></td>
+          <td data-label="Equipment"><input type="text" readonly data-bind="d1r3_eq"></td>
+          <td data-label="Notes"><textarea data-bind="d1r3_n"></textarea></td>
+        </tr>
+        <tr>
+          <td data-label="Exercise">
+            <select onchange="updateEquipment(1, 4)" data-bind="d1r4_sel">
+              <option value="Leg Press">🟢 Beginner: Leg Press</option>
+              <option value="Calf Raise">🔴 Advanced: Calf Raise</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">12</td>
+          <td data-label="Actual Reps"><input type="number" data-bind="d1r4_reps"></td>
+          <td data-label="Weight"><input type="text" data-bind="d1r4_w"></td>
+          <td data-label="Equipment"><input type="text" readonly data-bind="d1r4_eq"></td>
+          <td data-label="Notes"><textarea data-bind="d1r4_n"></textarea></td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>Cool-down</h2>
+    <ul>
+      <li><input type="checkbox" data-bind="cooldown1"> Stretch</li>
+      <li><input type="checkbox" data-bind="cooldown2"> Deep Breathing</li>
+    </ul>
+  </section>
+  <section id="day2">
+    <h2>Warm-up</h2>
+    <ul>
+      <li><input type="checkbox" data-bind="warmup4"> Arm Circles</li>
+      <li><input type="checkbox" data-bind="warmup5"> Shoulder Rolls</li>
+      <li><input type="checkbox" data-bind="warmup6"> Neck Rotations</li>
+    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>Exercise</th>
+          <th>Target Reps</th>
+          <th>Actual Reps</th>
+          <th>Weight</th>
+          <th>Equipment</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Exercise">
+            <select onchange="updateEquipment(2, 1)" data-bind="d2r1_sel">
+              <option value="Lat Pulldown">🟢 Beginner: Lat Pulldown</option>
+              <option value="Pull-Up">🔴 Advanced: Pull-Up</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">10</td>
+          <td data-label="Actual Reps"><input type="number" data-bind="d2r1_reps"></td>
+          <td data-label="Weight"><input type="text" data-bind="d2r1_w"></td>
+          <td data-label="Equipment"><input type="text" readonly data-bind="d2r1_eq"></td>
+          <td data-label="Notes"><textarea data-bind="d2r1_n"></textarea></td>
+        </tr>
+        <tr>
+          <td data-label="Exercise">
+            <select onchange="updateEquipment(2, 2)" data-bind="d2r2_sel">
+              <option value="Seated Cable Row">🟢 Beginner: Seated Cable Row</option>
+              <option value="One-Arm DB Row">🔴 Advanced: One-Arm DB Row</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">12</td>
+          <td data-label="Actual Reps"><input type="number" data-bind="d2r2_reps"></td>
+          <td data-label="Weight"><input type="text" data-bind="d2r2_w"></td>
+          <td data-label="Equipment"><input type="text" readonly data-bind="d2r2_eq"></td>
+          <td data-label="Notes"><textarea data-bind="d2r2_n"></textarea></td>
+        </tr>
+        <tr>
+          <td data-label="Exercise">
+            <select onchange="updateEquipment(2, 3)" data-bind="d2r3_sel">
+              <option value="DB Shoulder Press">🟢 Beginner: DB Shoulder Press</option>
+              <option value="Barbell Overhead Press">🔴 Advanced: Barbell Overhead Press</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">10</td>
+          <td data-label="Actual Reps"><input type="number" data-bind="d2r3_reps"></td>
+          <td data-label="Weight"><input type="text" data-bind="d2r3_w"></td>
+          <td data-label="Equipment"><input type="text" readonly data-bind="d2r3_eq"></td>
+          <td data-label="Notes"><textarea data-bind="d2r3_n"></textarea></td>
+        </tr>
+        <tr>
+          <td data-label="Exercise">
+            <select onchange="updateEquipment(2, 4)" data-bind="d2r4_sel">
+              <option value="Face Pull">🟢 Beginner: Face Pull</option>
+              <option value="Reverse Fly">🔴 Advanced: Reverse Fly</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">15</td>
+          <td data-label="Actual Reps"><input type="number" data-bind="d2r4_reps"></td>
+          <td data-label="Weight"><input type="text" data-bind="d2r4_w"></td>
+          <td data-label="Equipment"><input type="text" readonly data-bind="d2r4_eq"></td>
+          <td data-label="Notes"><textarea data-bind="d2r4_n"></textarea></td>
+        </tr>
+        <tr>
+          <td data-label="Exercise">
+            <select onchange="updateEquipment(2, 5)" data-bind="d2r5_sel">
+              <option value="Bicep Curl">🟢 Beginner: Bicep Curl</option>
+              <option value="Triceps Rope Pushdown">🔴 Advanced: Triceps Rope Pushdown</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">12</td>
+          <td data-label="Actual Reps"><input type="number" data-bind="d2r5_reps"></td>
+          <td data-label="Weight"><input type="text" data-bind="d2r5_w"></td>
+          <td data-label="Equipment"><input type="text" readonly data-bind="d2r5_eq"></td>
+          <td data-label="Notes"><textarea data-bind="d2r5_n"></textarea></td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>Cool-down</h2>
+    <ul>
+      <li><input type="checkbox" data-bind="cooldown3"> Stretch</li>
+      <li><input type="checkbox" data-bind="cooldown4"> Deep Breathing</li>
+    </ul>
+  </section>
+  <section id="day3">
+    <h2>Warm-up</h2>
+    <ul>
+      <li><input type="checkbox" data-bind="warmup7"> Leg Swings</li>
+      <li><input type="checkbox" data-bind="warmup8"> Hip Circles</li>
+      <li><input type="checkbox" data-bind="warmup9"> Arm Circles</li>
+    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>Exercise</th>
+          <th>Target Reps</th>
+          <th>Actual Reps</th>
+          <th>Weight</th>
+          <th>Equipment</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Exercise">
+            <select onchange="updateEquipment(3, 1)" data-bind="d3r1_sel">
+              <option value="Romanian Deadlift">🟢 Beginner: Romanian Deadlift</option>
+              <option value="Conventional Deadlift">🔴 Advanced: Conventional Deadlift</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">8</td>
+          <td data-label="Actual Reps"><input type="number" data-bind="d3r1_reps"></td>
+          <td data-label="Weight"><input type="text" data-bind="d3r1_w"></td>
+          <td data-label="Equipment"><input type="text" readonly data-bind="d3r1_eq"></td>
+          <td data-label="Notes"><textarea data-bind="d3r1_n"></textarea></td>
+        </tr>
+        <tr>
+          <td data-label="Exercise">
+            <select onchange="updateEquipment(3, 2)" data-bind="d3r2_sel">
+              <option value="Barbell Hip Thrust">🟢 Beginner: Barbell Hip Thrust</option>
+              <option value="DB Hip Thrust">🔴 Advanced: DB Hip Thrust</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">10</td>
+          <td data-label="Actual Reps"><input type="number" data-bind="d3r2_reps"></td>
+          <td data-label="Weight"><input type="text" data-bind="d3r2_w"></td>
+          <td data-label="Equipment"><input type="text" readonly data-bind="d3r2_eq"></td>
+          <td data-label="Notes"><textarea data-bind="d3r2_n"></textarea></td>
+        </tr>
+        <tr>
+          <td data-label="Exercise">
+            <select onchange="updateEquipment(3, 3)" data-bind="d3r3_sel">
+              <option value="Single-Leg RDL">🟢 Beginner: Single-Leg RDL</option>
+              <option value="Single-Leg Deadlift">🔴 Advanced: Single-Leg Deadlift</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">12</td>
+          <td data-label="Actual Reps"><input type="number" data-bind="d3r3_reps"></td>
+          <td data-label="Weight"><input type="text" data-bind="d3r3_w"></td>
+          <td data-label="Equipment"><input type="text" readonly data-bind="d3r3_eq"></td>
+          <td data-label="Notes"><textarea data-bind="d3r3_n"></textarea></td>
+        </tr>
+        <tr>
+          <td data-label="Exercise">
+            <select onchange="updateEquipment(3, 4)" data-bind="d3r4_sel">
+              <option value="Hamstring Curl">🟢 Beginner: Hamstring Curl</option>
+              <option value="Nordic Hamstring Curl">🔴 Advanced: Nordic Hamstring Curl</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">15</td>
+          <td data-label="Actual Reps"><input type="number" data-bind="d3r4_reps"></td>
+          <td data-label="Weight"><input type="text" data-bind="d3r4_w"></td>
+          <td data-label="Equipment"><input type="text" readonly data-bind="d3r4_eq"></td>
+          <td data-label="Notes"><textarea data-bind="d3r4_n"></textarea></td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>Cool-down</h2>
+    <ul>
+      <li><input type="checkbox" data-bind="cooldown5"> Stretch</li>
+      <li><input type="checkbox" data-bind="cooldown6"> Deep Breathing</li>
+    </ul>
+  </section>
+</div>
+<script>
+function showTab(day) {
+  document.querySelectorAll('.tab, section').forEach(el => el.classList.remove('active'));
+  document.querySelector('.tab:nth-child(' + day + ')').classList.add('active');
+  document.querySelector('#day' + day).classList.add('active');
+}
+function updateEquipment(day, row) {
+  const select = document.querySelector('[data-bind="d' + day + 'r' + row + '_sel"]');
+  const equipmentInput = document.querySelector('[data-bind="d' + day + 'r' + row + '_eq"]');
+  const exercise = select.value.split(': ')[1];
+  let equipment = 'bodyweight';
+  if (/Barbell|Landmine|Trap-Bar|Hack Squat/i.test(exercise)) equipment = 'barbell';
+  else if (/Dumbbell|DB|Arnold/i.test(exercise)) equipment = 'dumbbell';
+  else if (/Kettlebell|KB/i.test(exercise)) equipment = 'kettlebell';
+  else if (/Pulldown|Cable|Rope|Face Pull|TRX|Inverted Row/i.test(exercise)) equipment = 'cable/trx';
+  equipmentInput.value = equipment;
+  localStorage.setItem('d' + day + 'r' + row + '_eq', equipment);
+}
+function resetForm() {
+  localStorage.clear();
+  document.querySelectorAll('input, select, textarea').forEach(el => el.value = '');
+  document.querySelectorAll('input[type="checkbox"]').forEach(el => el.checked = false);
+}
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('[data-bind]').forEach(el => {
+    const key = el.getAttribute('data-bind');
+    if (el.type === 'checkbox') el.checked = localStorage.getItem(key) === 'true';
+    else el.value = localStorage.getItem(key) || '';
+    el.addEventListener('input', () => localStorage.setItem(key, el.type === 'checkbox' ? el.checked : el.value));
+  });
+  document.querySelectorAll('select').forEach(el => updateEquipment(el.getAttribute('data-bind').charAt(1), el.getAttribute('data-bind').charAt(3)));
+});
+</script>
+</body>
+</html>
