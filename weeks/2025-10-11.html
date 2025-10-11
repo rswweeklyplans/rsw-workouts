@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week of Oct 11, 2025 — Interactive Workout</title>
+    <style>
+        body {font-family: system-ui, Arial, sans-serif; background: #F1F0EC; margin: 0; padding: 0; line-height: 1.4;}
+        .container {max-width: 980px; margin: auto; padding: 10px;}
+        h1, h2 {color: #6C7653;}
+        button {background: #6C7653; color: #fff; border: none; padding: 10px; margin: 5px; font-size: 16px; cursor: pointer; width: 100%; max-width: 200px;}
+        button:focus {outline: 2px solid #C28511;}
+        .tabs {display: flex; justify-content: space-around; margin-bottom: 10px;}
+        .tab {flex: 1; text-align: center; padding: 10px; background: #6C7653; color: #fff; cursor: pointer;}
+        .tab.active {background: #C28511;}
+        .content {display: none;}
+        .content.active {display: block;}
+        table {width: 100%; border-collapse: collapse; margin-bottom: 20px;}
+        th, td {padding: 10px; text-align: left; border-bottom: 1px solid #ddd;}
+        th {background: #6C7653; color: #fff;}
+        td {background: #fff;}
+        input[type="number"], input[type="text"], select, textarea {width: 100%; padding: 8px; font-size: 16px; box-sizing: border-box;}
+        textarea {resize: vertical; height: 44px;}
+        @media (max-width: 600px) {
+            table thead {display: none;}
+            table, tbody, tr, td {display: block; width: 100%;}
+            tr {background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 10px; margin-bottom: 10px;}
+            td::before {content: attr(data-label); display: block; font-size: 12px; font-weight: 700; color: #6c6a63; margin-bottom: 4px;}
+            button {width: 100%;}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Week of Oct 11, 2025 — Interactive Workout</h1>
+        <div class="tabs">
+            <div class="tab active" onclick="showTab(1)">Day 1</div>
+            <div class="tab" onclick="showTab(2)">Day 2</div>
+            <div class="tab" onclick="showTab(3)">Day 3</div>
+        </div>
+        <div class="content active" id="day1">
+            <h2>Warm-up</h2>
+            <ul>
+                <li><input type="checkbox" id="warmup1" onchange="saveCheckbox('warmup1')"> Jumping Jacks</li>
+                <li><input type="checkbox" id="warmup2" onchange="saveCheckbox('warmup2')"> Arm Circles</li>
+                <li><input type="checkbox" id="warmup3" onchange="saveCheckbox('warmup3')"> Leg Swings</li>
+            </ul>
+            <table>
+                <tbody>
+                    <tr>
+                        <td data-label="Exercise">
+                            <select id="d1r1_sel" onchange="saveSelect('d1r1_sel')">
+                                <option value="Dumbbell Goblet Squat">Dumbbell Goblet Squat</option>
+                                <option value="Barbell Front Squat">Barbell Front Squat</option>
+                            </select>
+                        </td>
+                        <td data-label="Target Reps"><input type="text" id="d1r1_reps" value="4x8–12" readonly></td>
+                        <td data-label="Actual Reps"><input type="number" id="d1r1_reps_actual" onchange="saveInput('d1r1_reps_actual')"></td>
+                        <td data-label="Weight"><input type="text" id="d1r1_w" onchange="saveInput('d1r1_w')"></td>
+                        <td data-label="Notes"><textarea id="d1r1_n" onchange="saveInput('d1r1_n')"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Exercise">
+                            <select id="d1r2_sel" onchange="saveSelect('d1r2_sel')">
+                                <option value="Bodyweight Reverse Lunge">Bodyweight Reverse Lunge</option>
+                                <option value="Dumbbell Bulgarian Split Squat">Dumbbell Bulgarian Split Squat</option>
+                            </select>
+                        </td>
+                        <td data-label="Target Reps"><input type="text" id="d1r2_reps" value="3x8–12" readonly></td>
+                        <td data-label="Actual Reps"><input type="number" id="d1r2_reps_actual" onchange="saveInput('d1r2_reps_actual')"></td>
+                        <td data-label="Weight"><input type="text" id="d1r2_w" onchange="saveInput('d1r2_w')"></td>
+                        <td data-label="Notes"><textarea id="d1r2_n" onchange="saveInput('d1r2_n')"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Exercise">
+                            <select id="d1r3_sel" onchange="saveSelect('d1r3_sel')">
+                                <option value="Bodyweight Glute Bridge">Bodyweight Glute Bridge</option>
+                                <option value="Barbell Hip Thrust">Barbell Hip Thrust</option>
+                            </select>
+                        </td>
+                        <td data-label="Target Reps"><input type="text" id="d1r3_reps" value="3x8–12" readonly></td>
+                        <td data-label="Actual Reps"><input type="number" id="d1r3_reps_actual" onchange="saveInput('d1r3_reps_actual')"></td>
+                        <td data-label="Weight"><input type="text" id="d1r3_w" onchange="saveInput('d1r3_w')"></td>
+                        <td data-label="Notes"><textarea id="d1r3_n" onchange="saveInput('d1r3_n')"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Exercise">
+                            <select id="d1r4_sel" onchange="saveSelect('d1r4_sel')">
+                                <option value="Barbell Leg Press">Barbell Leg Press</option>
+                                <option value="Cable Leg Extension">Cable Leg Extension</option>
+                            </select>
+                        </td>
+                        <td data-label="Target Reps"><input type="text" id="d1r4_reps" value="3x8–12" readonly></td>
+                        <td data-label="Actual Reps"><input type="number" id="d1r4_reps_actual" onchange="saveInput('d1r4_reps_actual')"></td>
+                        <td data-label="Weight"><input type="text" id="d1r4_w" onchange="saveInput('d1r4_w')"></td>
+                        <td data-label="Notes"><textarea id="d1r4_n" onchange="saveInput('d1r4_n')"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Exercise">
+                            <select id="d1r5_sel" onchange="saveSelect('d1r5_sel')">
+                                <option value="Dumbbell Calf Raise">Dumbbell Calf Raise</option>
+                                <option value="Dumbbell Seated Calf Raise">Dumbbell Seated Calf Raise</option>
+                            </select>
+                        </td>
+                        <td data-label="Target Reps"><input type="text" id="d1r5_reps" value="3x8–12" readonly></td>
+                        <td data-label="Actual Reps"><input type="number" id="d1r5_reps_actual" onchange="saveInput('d1r5_reps_actual')"></td>
+                        <td data-label="Weight"><input type="text" id="d1r5_w" onchange="saveInput('d1r5_w')"></td>
+                        <td data-label="Notes"><textarea id="d1r5_n" onchange="saveInput('d1r5_n')"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Exercise">
+                            <select id="d1r6_sel" onchange="saveSelect('d1r6_sel')">
+                                <option value="Plank">Plank</option>
+                                <option value="Russian Twist">Russian Twist</option>
+                            </select>
+                        </td>
+                        <td data-label="Target Reps"><input type="text" id="d1r6_reps" value="3x12" readonly></td>
+                        <td data-label="Actual Reps"><input type="number" id="d1r6_reps_actual" onchange="saveInput('d1r6_reps_actual')"></td>
+                        <td data-label="Weight"><input type="text" id="d1r6_w" onchange="saveInput('d1r6_w')"></td>
+                        <td data-label="Notes"><textarea id="d1r6_n" onchange="saveInput('d1r6_n')"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Cool-down</h2>
+            <ul>
+                <li><input type="checkbox" id="cooldown1" onchange="saveCheckbox('cooldown1')"> Stretching</li>
+                <li><input type="checkbox" id="cooldown2" onchange="saveCheckbox('cooldown2')"> Deep Breathing</li>
+                <li><input type="checkbox" id="cooldown3" onchange="saveCheckbox('cooldown3')"> Foam Rolling</li>
+            </ul>
+        </div>
+        <div class="content" id="day2">
+            <h2>Warm-up</h2>
+            <ul>
+                <li><input type="checkbox" id="warmup4" onchange="saveCheckbox('warmup4')"> Arm Circles</li>
+                <li><input type="checkbox" id="warmup5" onchange="saveCheckbox('warmup5')"> Band Pull-Aparts</li>
+                <li><input type="checkbox" id="warmup6" onchange="saveCheckbox('warmup6')"> Scapular Push-Ups</li>
+            </ul>
+            <table>
+                <tbody>
+                    <tr>
+                        <td data-label="Exercise">
+                            <select id="d2r1_sel" onchange="saveSelect('d2r1_sel')">
+                                <option value="Cable Lat Pulldown">Cable Lat Pulldown</option>
+                                <option value="Bodyweight Pull-Up">Bodyweight Pull-Up</option>
+                            </select>
+                        </td>
+                        <td data-label="Target Reps"><input type="text" id="d2r1_reps" value="4x8–12" readonly></td>
+                        <td data-label="Actual Reps"><input type="number" id="d2r1_reps_actual" onchange="saveInput('d2r1_reps_actual')"></td>
+                        <td data-label="Weight"><input type="text" id="d2r1_w" onchange="saveInput('d2r1_w')"></td>
+                        <td data-label="Notes"><textarea id="d2r1_n" onchange="saveInput('d2r1_n')"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Exercise">
+                            <select id="d2r2_sel" onchange="saveSelect('d2r2_sel')">
+                                <option value="Cable Seated Row">Cable Seated Row</option>
+                                <option value="Dumbbell One-Arm Row">Dumbbell One-Arm Row</option>
+                            </select>
+                        </td>
+                        <td data-label="Target Reps"><input type="text" id="d2r2_reps" value="3x8–12" readonly></td>
+                        <td data-label="Actual Reps"><input type="number" id="d2r2_reps_actual" onchange="saveInput('d2r2_reps_actual')"></td>
+                        <td data-label="Weight"><input type="text" id="d2r2_w" onchange="saveInput('d2r2_w')"></td>
+                        <td data-label="Notes"><textarea id="d2r2_n" onchange="saveInput('d2r2_n')"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Exercise">
+                            <select id="d2r3_sel" onchange="saveSelect('d2r3_sel')">
+                                <option value="Dumbbell Shoulder Press">Dumbbell Shoulder Press</option>
+                                <option value="Barbell Overhead Press">Barbell Overhead Press</option>
+                            </select>
+                        </td>
+                        <td data-label="Target Reps"><input type="text" id="d2r3_reps" value="3x8–12" readonly></td>
+                        <td data-label="Actual Reps"><input type="number" id="d2r3_reps_actual" onchange="saveInput('d2r3_reps_actual')"></td>
+                        <td data-label="Weight"><input type="text" id="d2r3_w" onchange="saveInput('d2r3_w')"></td>
+                        <td data-label="Notes"><textarea id="d2r3_n" onchange="saveInput('d2r3_n')"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Exercise">
+                            <select id="d2r4_sel" onchange="saveSelect('d2r4_sel')">
+                                <option value="Cable Face Pull">Cable Face Pull</option>
+                                <option value="Dumbbell Reverse Fly">Dumbbell Reverse Fly</option>
+                            </select>
+                        </td>
+                        <td data-label="Target Reps"><input type="text" id="d2r4_reps" value="3x8–12" readonly></td>
+                        <td data-label="Actual Reps"><input type="number" id="d2r4_reps_actual" onchange="saveInput('d2r4_reps_actual')"></td>
+                        <td data-label="Weight"><input type="text" id="d2r4_w" onchange="saveInput('d2r4_w')"></td>
+                        <td data-label="Notes"><textarea id="d2r4_n" onchange="saveInput('d2r4_n')"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Exercise">
+                            <select id="d2r5_sel" onchange="saveSelect('d2r5_sel')">
+                                <option value="Dumbbell Bicep Curl">Dumbbell Bicep Curl</option>
+                                <option value="Cable Curl">Cable Curl</option>
+                            </select>
+                        </td>
+                        <td data-label="Target Reps"><input type="text" id="d2r5_reps" value="3x8–12" readonly></td>
+                        <td data-label="Actual Reps"><input type="number" id="d2r5_reps_actual" onchange="saveInput('d2r5_reps_actual')"></td>
+                        <td data-label="Weight"><input type="text" id="d2r5_w" onchange="saveInput('d2r5_w')"></td>
+                        <td data-label="Notes"><textarea id="d2r5_n" onchange="saveInput('d2r5_n')"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Exercise">
+                            <select id="d2r6_sel" onchange="saveSelect('d2r6_sel')">
+                                <option value="Dumbbell Hammer Curl">Dumbbell Hammer Curl</option>
+                                <option value="Cable Triceps Rope Pushdown">Cable Triceps Rope Pushdown</option>
+                            </select>
+                        </td>
+                        <td data-label="Target Reps"><input type="text" id="d2r6_reps" value="3x8–12" readonly></td>
+                        <td data-label="Actual Reps"><input type="number" id="d2r6_reps_actual" onchange="saveInput('d2r6_reps_actual')"></td>
+                        <td data-label="Weight"><input type="text" id="d2r6_w" onchange="saveInput('d2r6_w')"></td>
+                        <td data-label="Notes"><textarea id="d2r6_n" onchange="saveInput('d2r6_n')"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Cool-down</h2>
+            <ul>
+                <li><input type="checkbox" id="cooldown4" onchange="saveCheckbox('cooldown4')"> Stretching</li>
+                <li><input type="checkbox" id="cooldown5" onchange="saveCheckbox('cooldown5')"> Deep Breathing</li>
+                <li><input type="checkbox" id="cooldown6" onchange="saveCheckbox('cooldown6')"> Foam Rolling</li>
+            </ul>
+        </div>
+        <div class="content" id="day3">
+            <h2>Warm-up</h2>
+            <ul>
+                <li><input type="checkbox" id="warmup7" onchange="saveCheckbox('warmup7')"> Leg Swings</li>
+                <li><input type="checkbox" id="warmup8" onchange="saveCheckbox('warmup8')"> Hip Circles</li>
+                <li><input type="checkbox" id="warmup9" onchange="saveCheckbox('warmup9')"> High Knees</li>
+            </ul>
+            <table>
+                <tbody>
+                    <tr>
+                        <td data-label="Exercise">
+                            <select id="d3r1_sel" onchange="saveSelect('d3r1_sel')">
+                                <option value="Dumbbell Romanian Deadlift">Dumbbell Romanian Deadlift</option>
+                                <option value="Barbell Conventional Deadlift">Barbell Conventional Deadlift</option>
+                            </select>
+                        </td>
+                        <td data-label="Target Reps"><input type="text" id="d3r1_reps" value="4x5–8" readonly></td>
+                        <td data-label="Actual Reps"><input type="number" id="d3r1_reps_actual" onchange="saveInput('d3r1_reps_actual')"></td>
+                        <td data-label="Weight"><input type="text" id="d3r1_w" onchange="saveInput('d3r1_w')"></td>
+                        <td data-label="Notes"><textarea id="d3r1_n" onchange="saveInput('d3r1_n')"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Exercise">
+                            <select id="d3r2_sel" onchange="saveSelect('d3r2_sel')">
+                                <option value="Barbell Hip Thrust">Barbell Hip Thrust</option>
+                                <option value="Bodyweight Nordic Hamstring Curl">Bodyweight Nordic Hamstring Curl</option>
+                            </select>
+                        </td>
+                        <td data-label="Target Reps"><input type="text" id="d3r2_reps" value="3x8–12" readonly></td>
+                        <td data-label="Actual Reps"><input type="number" id="d3r2_reps_actual" onchange="saveInput('d3r2_reps_actual')"></td>
+                        <td data-label="Weight"><input type="text" id="d3r2_w" onchange="saveInput('d3r2_w')"></td>
+                        <td data-label="Notes"><textarea id="d3r2_n" onchange="saveInput('d3r2_n')"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Exercise">
+                            <select id="d3r3_sel" onchange="saveSelect('d3r3_sel')">
+                                <option value="Dumbbell Single-Leg RDL">Dumbbell Single-Leg RDL</option>
+                                <option value="Kettlebell Single-Leg RDL">Kettlebell Single-Leg RDL</option>
+                            </select>
+                        </td>
+                        <td data-label="Target Reps"><input type="text" id="d3r3_reps" value="3x8–12" readonly></td>
+                        <td data-label="Actual Reps"><input type="number" id="d3r3_reps_actual" onchange="saveInput('d3r3_reps_actual')"></td>
+                        <td data-label="Weight"><input type="text" id="d3r3_w" onchange="saveInput('d3r3_w')"></td>
+                        <td data-label="Notes"><textarea id="d3r3_n" onchange="saveInput('d3r3_n')"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Exercise">
+                            <select id="d3r4_sel" onchange="saveSelect('d3r4_sel')">
+                                <option value="Bodyweight 45° Back Extension">Bodyweight 45° Back Extension</option>
+                                <option value="Dumbbell 45° Back Extension">Dumbbell 45° Back Extension</option>
+                            </select>
+                        </td>
+                        <td data-label="Target Reps"><input type="text" id="d3r4_reps" value="3x8–12" readonly></td>
+                        <td data-label="Actual Reps"><input type="number" id="d3r4_reps_actual" onchange="saveInput('d3r4_reps_actual')"></td>
+                        <td data-label="Weight"><input type="text" id="d3r4_w" onchange="saveInput('d3r4_w')"></td>
+                        <td data-label="Notes"><textarea id="d3r4_n" onchange="saveInput('d3r4_n')"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Exercise">
+                            <select id="d3r5_sel" onchange="saveSelect('d3r5_sel')">
+                                <option value="Barbell Hip Thrust">Barbell Hip Thrust</option>
+                                <option value="Dumbbell Hip Thrust">Dumbbell Hip Thrust</option>
+                            </select>
+                        </td>
+                        <td data-label="Target Reps"><input type="text" id="d3r5_reps" value="3x8–12" readonly></td>
+                        <td data-label="Actual Reps"><input type="number" id="d3r5_reps_actual" onchange="saveInput('d3r5_reps_actual')"></td>
+                        <td data-label="Weight"><input type="text" id="d3r5_w" onchange="saveInput('d3r5_w')"></td>
+                        <td data-label="Notes"><textarea id="d3r5_n" onchange="saveInput('d3r5_n')"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Exercise">
+                            <select id="d3r6_sel" onchange="saveSelect('d3r6_sel')">
+                                <option value="Plank">Plank</option>
+                                <option value="Russian Twist">Russian Twist</option>
+                            </select>
+                        </td>
+                        <td data-label="Target Reps"><input type="text" id="d3r6_reps" value="3x12" readonly></td>
+                        <td data-label="Actual Reps"><input type="number" id="d3r6_reps_actual" onchange="saveInput('d3r6_reps_actual')"></td>
+                        <td data-label="Weight"><input type="text" id="d3r6_w" onchange="saveInput('d3r6_w')"></td>
+                        <td data-label="Notes"><textarea id="d3r6_n" onchange="saveInput('d3r6_n')"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Cool-down</h2>
+            <ul>
+                <li><input type="checkbox" id="cooldown7" onchange="saveCheckbox('cooldown7')"> Stretching</li>
+                <li><input type="checkbox" id="cooldown8" onchange="saveCheckbox('cooldown8')"> Deep Breathing</li>
+                <li><input type="checkbox" id="cooldown9" onchange="saveCheckbox('cooldown9')"> Foam Rolling</li>
+            </ul>
+        </div>
+        <div style="text-align:center;">
+            <button onclick="resetAll()">Reset</button>
+            <button onclick="window.print()">Download</button>
+        </div>
+    </div>
+    <script>
+        function showTab(day) {
+            document.querySelectorAll('.tab, .content').forEach((el, i) => {
+                el.classList.toggle('active', i === day - 1);
+            });
+        }
+        function saveInput(id) {
+            localStorage.setItem(id, document.getElementById(id).value);
+        }
+        function saveSelect(id) {
+            localStorage.setItem(id, document.getElementById(id).value);
+        }
+        function saveCheckbox(id) {
+            localStorage.setItem(id, document.getElementById(id).checked);
+        }
+        function loadAll() {
+            document.querySelectorAll('input, select, textarea').forEach(el => {
+                if (el.type === 'checkbox') {
+                    el.checked = localStorage.getItem(el.id) === 'true';
+                } else {
+                    el.value = localStorage.getItem(el.id) || el.value;
+                }
+            });
+        }
+        function resetAll() {
+            localStorage.clear();
+            document.querySelectorAll('input, select, textarea').forEach(el => {
+                if (el.type === 'checkbox') {
+                    el.checked = false;
+                } else {
+                    el.value = '';
+                }
+            });
+        }
+        window.onload = loadAll;
+    </script>
+</body>
+</html>
