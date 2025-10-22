@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RSW Weekly Plan — 2025-10-22 — Endurance</title>
+<style>
+  :root{
+    --olive:#6C7653; --cream:#F1F0EC;
+    --gold:#C28511; --ink:#1b1b1b; --mid:#6b7280;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial; color:var(--ink); background:var(--cream)}
+  .wrap{max-width:960px; margin:0 auto; padding:24px 16px}
+  header{background:linear-gradient(180deg,var(--olive),#536043); color:white; padding:24px; border-radius:16px}
+  header h1{margin:0 0 6px 0; font-size:1.5rem; letter-spacing:0.2px}
+  .meta{opacity:.95; font-size:.95rem}
+  .goal{margin-top:12px; background:white; color:var(--ink); border-left:6px solid var(--gold); padding:12px 14px; border-radius:12px}
+  .intro{margin:16px 0 0 0; font-size:1rem}
+
+  h2{font-size:1.1rem; margin:18px 0 8px}
+  .workout, .mini, .walk, .footer{
+    background:white; border-radius:16px; padding:16px; margin:16px 0; box-shadow:0 1px 0 rgba(0,0,0,.03)
+  }
+  .exercise{border:1px solid #e5e7eb; border-radius:12px; padding:12px; margin:12px 0; background:#fafafa}
+  .ex-head{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+  .ex-title{font-size:1rem}
+  .badge{background:var(--cream); color:#333; padding:2px 8px; border-radius:999px; font-size:.8rem; margin-left:8px}
+  .equip label{font-size:.8rem; color:#374151; display:block; margin-bottom:4px}
+  .equip select{padding:8px; border-radius:10px; border:1px solid #d1d5db; background:white}
+  .trackers{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:10px 0}
+  .trackers label{display:flex; flex-direction:column; font-size:.85rem; gap:6px}
+  .trackers input{padding:10px; border-radius:10px; border:1px solid #d1d5db; background:white}
+  .sets{display:flex; flex-wrap:wrap; gap:10px; margin:6px 0 10px}
+  .setbox{display:flex; align-items:center; gap:6px; font-size:.9rem; background:#fff; border:1px dashed #e5e7eb; border-radius:999px; padding:6px 10px}
+  .notes{display:flex; flex-direction:column; gap:6px; font-size:.85rem}
+  textarea{border:1px solid #d1d5db; border-radius:10px; padding:10px; background:white}
+  .cue,.pattern{font-size:.85rem; color:#374151; margin-top:6px}
+  .mini ul{margin:8px 0 0 18px}
+  .footer a{color:var(--olive); text-decoration:underline}
+  .liblinks a{margin-right:12px}
+  @media (max-width:640px){ .trackers{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>RSW Weekly Plan — 2025-10-22</h1>
+      <div class="meta"><strong>Phase:</strong> Endurance — Focus on building cardiovascular endurance and muscular stamina. • Week 1</div>
+      <div class="goal"><strong>Goal of the week:</strong> Kickstart your fitness journey with enhanced endurance.</div>
+      <p class="intro">Welcome to Week 1! Let's build a strong foundation with endurance workouts.</p>
+    </header>
+
+    
+
+    <section class="mini">
+      <h2>Mini Session of the Week (Full Body)</h2>
+      <p>Do 4 sets of 15 reps for each movement, minimal rest, under 10 minutes.</p>
+      <ul></ul>
+    </section>
+
+    <section class="walk">
+      <h2>Daily Walks</h2>
+      <p>Encourage daily walks with mindset and recovery cues.</p>
+    </section>
+
+    <section class="footer">
+      <p class="liblinks">
+        New or jumping in mid-cycle? Explore the phase libraries:
+        <a href="https://rswweeklyplans.github.io/rsw-workouts/library/endurance">Endurance</a> |
+        <a href="https://rswweeklyplans.github.io/rsw-workouts/library/strength">Strength</a> |
+        <a href="https://rswweeklyplans.github.io/rsw-workouts/library/hypertrophy">Hypertrophy</a>
+      </p>
+      <p style="color:#4b5563;font-size:.85rem">Tip: your entries are stored on your device (localStorage). Clearing site data will reset your logs.</p>
+    </section>
+  </div>
+
+  <script>
+    // Restore saved values
+    const restore = () => {
+      document.querySelectorAll('[data-key]').forEach(el=>{
+        const key = el.getAttribute('data-key');
+        if (el.type === 'checkbox') {
+          el.checked = localStorage.getItem(key) === '1';
+        } else {
+          const v = localStorage.getItem(key);
+          if (v !== null) el.value = v;
+        }
+      });
+    };
+    // Persist on change
+    const persist = (e) => {
+      const el = e.target;
+      if (!el || !el.hasAttribute('data-key')) return;
+      const key = el.getAttribute('data-key');
+      const val = (el.type === 'checkbox') ? (el.checked ? '1':'0') : el.value;
+      localStorage.setItem(key, val);
+    };
+    window.addEventListener('change', persist, true);
+    window.addEventListener('DOMContentLoaded', restore);
+  </script>
+</body>
+</html>
