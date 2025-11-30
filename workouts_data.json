@@ -2,51 +2,50 @@
   "endurance": {
     "phase_name": "Endurance",
     "phase_weeks": "1–4",
-    "goal": "Build muscular endurance and work capacity with higher reps and moderate loads.",
-    "intro": "Focus on form, time under tension, and building your aerobic base this week.",
+    "goal": "Build stamina, perfect form, and muscle endurance.",
+    "intro": "Focus on control, time under tension, and building your aerobic base this week.",
     "reps_range": "12-20",
     "sets_range": "3-4",
-    "rest": "60 seconds",
+    "rest": "45-75 seconds",
     "workouts": {
       "monday_glutes": {
         "title": "Monday: Glutes",
         "exercises": [
-          {"name": "Barbell Hip Thrust", "reps": 15, "sets": 4, "rest": "60 seconds", "pattern": "glute", "progression": "+5 lb next week"},
-          {"name": "Conventional Deadlift", "reps": 12, "sets": 4, "rest": "60 seconds", "pattern": "hinge", "progression": "+5 lb next week"},
-          {"name": "Dumbbell Bulgarian Split Squat", "reps": "12/side", "sets": 3, "rest": "60 seconds", "pattern": "lunge", "progression": "+2.5 lb next week"},
-          {"name": "B-Stance RDL", "reps": 15, "sets": 3, "rest": "60 seconds", "pattern": "hinge", "progression": "+2.5 lb next week"},
-          {"name": "Glute Bridge Hold", "reps": "45-60s", "sets": 3, "rest": "60 seconds", "pattern": "glute", "progression": "+10s hold time"},
-          {"name": "Dumbbell Froggers", "reps": 15, "sets": 3, "rest": "60 seconds", "pattern": "glute", "progression": "+1-2 reps next week"}
+          {"name": "Barbell Hip Thrust", "reps": 15, "sets": 4, "rest": "45-75 seconds", "pattern": "glute", "progression": "+5 lb next week"},
+          {"name": "B-Stance RDL", "reps": "15/side", "sets": 3, "rest": "45-75 seconds", "pattern": "hinge", "progression": "+2.5 lb next week"},
+          {"name": "Dumbbell Sumo Squat", "reps": 15, "sets": 4, "rest": "45-75 seconds", "pattern": "squat", "progression": "+5 lb next week"},
+          {"name": "Single-Leg Hip Thrust", "reps": "12/side", "sets": 3, "rest": "45-75 seconds", "pattern": "glute", "progression": "+1 rep per side"},
+          {"name": "Bodyweight Step-Ups", "reps": 20, "sets": 3, "rest": "45-75 seconds", "pattern": "lunge", "progression": "add light dumbbells next week"}
         ]
       },
       "tuesday_push": {
         "title": "Tuesday: Push (Upper Body)",
         "exercises": [
-          {"name": "Dumbbell Shoulder Press", "reps": 12, "sets": 4, "rest": "60 seconds", "pattern": "push", "progression": "+2.5 lb next week"},
-          {"name": "Flat Dumbbell Chest Press", "reps": 12, "sets": 4, "rest": "60 seconds", "pattern": "press", "progression": "+2.5 lb next week"},
-          {"name": "Cable/Band Rear Delt Fly", "reps": 15, "sets": 3, "rest": "60 seconds", "pattern": "pull", "progression": "+1-2 reps"},
-          {"name": "Lateral Raise", "reps": 15, "sets": 3, "rest": "60 seconds", "pattern": "push", "progression": "+1-2 reps"},
-          {"name": "Push-Ups", "reps": "max", "sets": 3, "rest": "60 seconds", "pattern": "push", "progression": "+2-3 reps per set"}
+          {"name": "Dumbbell Shoulder Press", "reps": 15, "sets": 4, "rest": "45-75 seconds", "pattern": "push", "progression": "+2.5 lb next week"},
+          {"name": "Side Lateral Raises", "reps": 20, "sets": 3, "rest": "45-75 seconds", "pattern": "push", "progression": "+2.5 lb or add 2 reps"},
+          {"name": "Front Raise (Plate or Dumbbell)", "reps": 15, "sets": 3, "rest": "45-75 seconds", "pattern": "push", "progression": "+2.5 lb next week"},
+          {"name": "Dumbbell Chest Press (flat or incline)", "reps": 12, "sets": 4, "rest": "45-75 seconds", "pattern": "press", "progression": "+5 lb next week"},
+          {"name": "Overhead Tricep Extension", "reps": 15, "sets": 3, "rest": "45-75 seconds", "pattern": "push", "progression": "+2.5 lb next week"}
         ]
       },
       "thursday_legs": {
         "title": "Thursday: Legs",
         "exercises": [
-          {"name": "Goblet Squat", "reps": 15, "sets": 4, "rest": "60 seconds", "pattern": "squat", "progression": "+5 lb next week"},
-          {"name": "Dumbbell Romanian Deadlift", "reps": 12, "sets": 4, "rest": "60 seconds", "pattern": "hinge", "progression": "+2.5 lb next week"},
-          {"name": "Dumbbell Front Squat", "reps": 15, "sets": 3, "rest": "60 seconds", "pattern": "squat", "progression": "+2.5 lb next week"},
-          {"name": "Walking Lunges", "reps": 24, "sets": 3, "rest": "60 seconds", "pattern": "lunge", "progression": "+2.5 lb next week"},
-          {"name": "Glute Kickbacks (band)", "reps": 20, "sets": 3, "rest": "60 seconds", "pattern": "glute", "progression": "+2 reps or heavier band"}
+          {"name": "Back Squat (or Goblet)", "reps": 15, "sets": 4, "rest": "45-75 seconds", "pattern": "squat", "progression": "+5 lb next week"},
+          {"name": "Bulgarian Split Squat", "reps": "12/side", "sets": 3, "rest": "45-75 seconds", "pattern": "lunge", "progression": "+2.5 lb next week"},
+          {"name": "Dumbbell RDL", "reps": 15, "sets": 3, "rest": "45-75 seconds", "pattern": "hinge", "progression": "+5 lb next week"},
+          {"name": "Dumbbell Walking Lunge", "reps": 20, "sets": 3, "rest": "45-75 seconds", "pattern": "lunge", "progression": "+2.5 lb next week"},
+          {"name": "Dumbbell Curtsy Lunge", "reps": "30s", "sets": 3, "rest": "45-75 seconds", "pattern": "lunge", "progression": "+5s hold time"}
         ]
       },
       "saturday_pull": {
         "title": "Saturday: Pull (Upper Body)",
         "exercises": [
-          {"name": "Dumbbell Row", "reps": 12, "sets": 4, "rest": "60 seconds", "pattern": "row", "progression": "+2.5 lb next week"},
-          {"name": "Assisted Pull-Ups or Band Pull-Downs", "reps": 10, "sets": 4, "rest": "60 seconds", "pattern": "pull", "progression": "+1 rep or less assistance"},
-          {"name": "Dumbbell Curl", "reps": 12, "sets": 3, "rest": "60 seconds", "pattern": "curl", "progression": "+2.5 lb next week"},
-          {"name": "Dumbbell Deadlift", "reps": 12, "sets": 3, "rest": "60 seconds", "pattern": "hinge", "progression": "+5 lb next week"},
-          {"name": "Cable Face Pull", "reps": 15, "sets": 3, "rest": "60 seconds", "pattern": "pull", "progression": "+1-2 reps"}
+          {"name": "Dumbbell Bent-Over Row", "reps": 15, "sets": 4, "rest": "45-75 seconds", "pattern": "row", "progression": "+5 lb next week"},
+          {"name": "Single-Arm Dumbbell Row", "reps": "12/side", "sets": 3, "rest": "45-75 seconds", "pattern": "row", "progression": "+2.5 lb next week"},
+          {"name": "Standing Alternating Curl", "reps": 15, "sets": 3, "rest": "45-75 seconds", "pattern": "curl", "progression": "+2.5 lb next week"},
+          {"name": "Pull-Ups (band-assisted if needed)", "reps": 10, "sets": 3, "rest": "45-75 seconds", "pattern": "pull", "progression": "+1 rep or less assistance"},
+          {"name": "Push-Ups (optional burnout)", "reps": "max", "sets": 3, "rest": "45-75 seconds", "pattern": "push", "progression": "+2 reps per set"}
         ]
       }
     }
@@ -54,7 +53,7 @@
   "strength": {
     "phase_name": "Strength",
     "phase_weeks": "5–8",
-    "goal": "Focus on building strength with heavy loads, 6–10 reps per set, and progressive overload emphasized.",
+    "goal": "Build strength and lift heavier with good form.",
     "intro": "Time to get strong! Heavy load, great form, and progressive gains this week.",
     "reps_range": "6-10",
     "sets_range": "4-5",
@@ -106,62 +105,61 @@
   "hypertrophy": {
     "phase_name": "Hypertrophy",
     "phase_weeks": "9–12",
-    "goal": "Maximize muscle growth with moderate-heavy loads, higher volume, and controlled tempos.",
-    "intro": "Time to grow! Focus on the squeeze, tempo, and pushing close to failure.",
-    "reps_range": "8-12",
-    "sets_range": "4-5",
-    "rest": "60-90 seconds",
+    "goal": "Boost intensity, burn fat, and define muscles.",
+    "intro": "High intensity, minimal rest—let's grow! Push the pace and focus on conditioning.",
+    "reps_range": "10-15",
+    "sets_range": "3-4",
+    "rest": "30-45 seconds",
     "workouts": {
       "monday_glutes": {
         "title": "Monday: Glutes",
         "exercises": [
-          {"name": "Barbell Hip Thrust", "reps": 10, "sets": 5, "rest": "60-90 seconds", "pattern": "glute", "progression": "+5 lb next week"},
-          {"name": "Conventional Deadlift", "reps": 8, "sets": 4, "rest": "60-90 seconds", "pattern": "hinge", "progression": "+5 lb next week"},
-          {"name": "Dumbbell Bulgarian Split Squat", "reps": "10/side", "sets": 4, "rest": "60-90 seconds", "pattern": "lunge", "progression": "+2.5 lb next week"},
-          {"name": "B-Stance RDL", "reps": 12, "sets": 3, "rest": "60-90 seconds", "pattern": "hinge", "progression": "+2.5 lb next week"},
-          {"name": "Cable Glute Kickback", "reps": 12, "sets": 4, "rest": "60-90 seconds", "pattern": "glute", "progression": "+5 lb or +1 rep"},
-          {"name": "Dumbbell Froggers", "reps": 12, "sets": 3, "rest": "60-90 seconds", "pattern": "glute", "progression": "+1-2 reps next week"}
+          {"name": "Hip Thrust + B-Stance RDL (Superset)", "reps": "12 each", "sets": 3, "rest": "30-45 seconds", "pattern": "glute", "progression": "+5 lb or shorter rest"},
+          {"name": "Sumo Squat + Step-Ups (Superset)", "reps": "15 each", "sets": 3, "rest": "30-45 seconds", "pattern": "squat", "progression": "+2.5 lb or add 2 reps"},
+          {"name": "Single-Leg Hip Thrust", "reps": "12/side", "sets": 3, "rest": "30-45 seconds", "pattern": "glute", "progression": "+1 rep per side"},
+          {"name": "Dumbbell Deadlift", "reps": 10, "sets": 3, "rest": "30-45 seconds", "pattern": "hinge", "progression": "+5 lb next week"},
+          {"name": "Glute Bridge Pulses", "reps": 20, "sets": 3, "rest": "30-45 seconds", "pattern": "glute", "progression": "+5 reps next week"}
         ]
       },
       "tuesday_push": {
         "title": "Tuesday: Push (Upper Body)",
         "exercises": [
-          {"name": "Dumbbell Shoulder Press", "reps": 10, "sets": 4, "rest": "60-90 seconds", "pattern": "push", "progression": "+2.5 lb next week"},
-          {"name": "Incline Dumbbell Chest Press", "reps": 10, "sets": 4, "rest": "60-90 seconds", "pattern": "press", "progression": "+2.5 lb next week"},
-          {"name": "Cable/Band Rear Delt Fly", "reps": 15, "sets": 4, "rest": "60-90 seconds", "pattern": "pull", "progression": "+1-2 reps"},
-          {"name": "Lateral Raise", "reps": 12, "sets": 4, "rest": "60-90 seconds", "pattern": "push", "progression": "+2.5 lb next week"},
-          {"name": "Overhead Tricep Extension", "reps": 12, "sets": 3, "rest": "60-90 seconds", "pattern": "push", "progression": "+2.5 lb next week"}
+          {"name": "Dumbbell Shoulder Press + Lateral Raise (Superset)", "reps": 12, "sets": 3, "rest": "30-45 seconds", "pattern": "push", "progression": "+2.5 lb or shorter rest"},
+          {"name": "Front Raise + Rear Delt Fly (Superset)", "reps": 15, "sets": 3, "rest": "30-45 seconds", "pattern": "push", "progression": "+2.5 lb next week"},
+          {"name": "Push-Ups", "reps": "max", "sets": 3, "rest": "30-45 seconds", "pattern": "push", "progression": "+2-3 reps per set"},
+          {"name": "Dumbbell Chest Press", "reps": 10, "sets": 4, "rest": "30-45 seconds", "pattern": "press", "progression": "+5 lb next week"},
+          {"name": "Tricep Dips", "reps": 12, "sets": 3, "rest": "30-45 seconds", "pattern": "push", "progression": "+2 reps per set"}
         ]
       },
       "thursday_legs": {
         "title": "Thursday: Legs",
         "exercises": [
-          {"name": "Back Squat", "reps": 10, "sets": 5, "rest": "60-90 seconds", "pattern": "squat", "progression": "+5 lb next week"},
-          {"name": "Dumbbell Romanian Deadlift", "reps": 10, "sets": 4, "rest": "60-90 seconds", "pattern": "hinge", "progression": "+5 lb next week"},
-          {"name": "Leg Press", "reps": 12, "sets": 4, "rest": "60-90 seconds", "pattern": "squat", "progression": "+10 lb next week"},
-          {"name": "Walking Lunges", "reps": 24, "sets": 3, "rest": "60-90 seconds", "pattern": "lunge", "progression": "+2.5 lb next week"},
-          {"name": "Leg Curl", "reps": 12, "sets": 3, "rest": "60-90 seconds", "pattern": "hinge", "progression": "+5 lb next week"}
+          {"name": "Dumbbell Squat + Reverse Lunge (Superset)", "reps": "12 each", "sets": 4, "rest": "30-45 seconds", "pattern": "squat", "progression": "+5 lb or add 1 rep"},
+          {"name": "Dumbbell RDL", "reps": 12, "sets": 3, "rest": "30-45 seconds", "pattern": "hinge", "progression": "+5 lb next week"},
+          {"name": "Goblet Squat Pulse", "reps": 15, "sets": 3, "rest": "30-45 seconds", "pattern": "squat", "progression": "+2.5 lb next week"},
+          {"name": "Split Squat Hold", "reps": "30s/side", "sets": 3, "rest": "30-45 seconds", "pattern": "lunge", "progression": "+5s hold time"},
+          {"name": "Calf Raises", "reps": 25, "sets": 3, "rest": "30-45 seconds", "pattern": "lower", "progression": "+5 reps or add weight"}
         ]
       },
       "saturday_pull": {
         "title": "Saturday: Pull (Upper Body)",
         "exercises": [
-          {"name": "Barbell or Dumbbell Row", "reps": 10, "sets": 4, "rest": "60-90 seconds", "pattern": "row", "progression": "+2.5 lb next week"},
-          {"name": "Lat Pulldown", "reps": 10, "sets": 4, "rest": "60-90 seconds", "pattern": "pull", "progression": "+5 lb next week"},
-          {"name": "Hammer Curl", "reps": 12, "sets": 4, "rest": "60-90 seconds", "pattern": "curl", "progression": "+2.5 lb next week"},
-          {"name": "Barbell Deadlift", "reps": 8, "sets": 3, "rest": "60-90 seconds", "pattern": "hinge", "progression": "+5 lb next week"},
-          {"name": "Cable Face Pull", "reps": 15, "sets": 3, "rest": "60-90 seconds", "pattern": "pull", "progression": "+1-2 reps"}
+          {"name": "Bent-Over Row + Bicep Curl (Superset)", "reps": 12, "sets": 3, "rest": "30-45 seconds", "pattern": "row", "progression": "+5 lb or shorter rest"},
+          {"name": "Pull-Ups (or band-assisted)", "reps": 8, "sets": 3, "rest": "30-45 seconds", "pattern": "pull", "progression": "+1 rep or less assistance"},
+          {"name": "Dumbbell Deadlift", "reps": 10, "sets": 3, "rest": "30-45 seconds", "pattern": "hinge", "progression": "+5 lb next week"},
+          {"name": "Face Pull + Rear Delt Fly (Superset)", "reps": 15, "sets": 3, "rest": "30-45 seconds", "pattern": "pull", "progression": "+2.5 lb next week"},
+          {"name": "Push-Ups", "reps": "max", "sets": 3, "rest": "30-45 seconds", "pattern": "push", "progression": "+2 reps per set"}
         ]
       }
     }
   },
   "mini_session": {
     "title": "Mini Session of the Week (core or full-body)",
-    "description": "Do 3 sets of 12-15 reps for each movement, rest 60-90 seconds.",
+    "description": "3 exercises (core or full body). 4×15 each, bodyweight or banded. Under 10 minutes total.",
     "exercises": ["Hanging Leg Raises", "Pallof Press", "Dead Bug"]
   },
   "daily_walk": {
-    "title": "Daily Walks",
-    "description": "Get outside for 20–30 minutes of fresh air today. It's as powerful for your recovery as it is for your mind."
+    "title": "Daily Walk",
+    "description": "Get outside for 20–30 minutes of fresh air today. It's as powerful for your metabolism as it is for your mind."
   }
 }
