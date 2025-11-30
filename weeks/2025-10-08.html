@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week of Oct 8, 2025 — Interactive Workout</title>
+<style>
+  body { background: #F1F0EC; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.4; margin: 0; padding: 0; box-sizing: border-box; }
+  .container { max-width: 980px; margin: 0 auto; padding: 16px; }
+  h1, h2 { color: #6C7653; }
+  .sticky-header { position: sticky; top: 0; background: #F1F0EC; padding: 8px 0; z-index: 1000; }
+  .button { background: #6C7653; color: #fff; border: none; padding: 12px; font-size: 16px; cursor: pointer; width: 48%; margin: 1%; }
+  .tabs { display: flex; justify-content: space-between; }
+  .tab { flex: 1; text-align: center; padding: 12px; background: #C28511; color: #fff; cursor: pointer; }
+  .tab-content { display: none; }
+  .active { display: block; }
+  table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+  th, td { padding: 8px; text-align: left; }
+  th { background: #C28511; color: #fff; }
+  input, select, textarea { width: 100%; padding: 8px; font-size: 16px; }
+  @media (max-width: 600px) {
+    table thead { display: none; }
+    table, tbody, tr, td { display: block; width: 100%; }
+    tr { background: #fff; border: 1px solid #ccc; border-radius: 12px; padding: 10px; margin-bottom: 12px; }
+    td::before { content: attr(data-label); display: block; font-size: 12px; font-weight: 700; color: #6c6a63; text-transform: uppercase; letter-spacing: .04em; margin: 0 0 4px; }
+    .tabs { flex-direction: column; }
+    .tab { width: 100%; margin-bottom: 8px; }
+    .button { width: 100%; }
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    function saveData() {
+      document.querySelectorAll("input, select, textarea").forEach(function(el) {
+        localStorage.setItem(el.id, el.value);
+      });
+    }
+    function loadData() {
+      document.querySelectorAll("input, select, textarea").forEach(function(el) {
+        if (localStorage.getItem(el.id)) el.value = localStorage.getItem(el.id);
+      });
+    }
+    function resetData() {
+      localStorage.clear();
+      document.querySelectorAll("input, select, textarea").forEach(function(el) {
+        el.value = "";
+      });
+    }
+    function switchTab(evt, tabId) {
+      document.querySelectorAll(".tab-content").forEach(function(el) {
+        el.classList.remove("active");
+      });
+      document.getElementById(tabId).classList.add("active");
+    }
+    document.querySelectorAll(".tab").forEach(function(tab) {
+      tab.addEventListener("click", function(evt) {
+        switchTab(evt, tab.dataset.tab);
+      });
+    });
+    document.getElementById("reset").addEventListener("click", resetData);
+    document.getElementById("download").addEventListener("click", function() {
+      window.print();
+    });
+    loadData();
+    document.querySelectorAll("input, select, textarea").forEach(function(el) {
+      el.addEventListener("change", saveData);
+    });
+  });
+</script>
+</head>
+<body>
+<div class="container">
+  <div class="sticky-header">
+    <button id="reset" class="button">Reset</button>
+    <button id="download" class="button">Download</button>
+  </div>
+  <h1>Week of Oct 8, 2025 — Interactive Workout</h1>
+  <h2>Warm-up</h2>
+  <ul>
+    <li><input type="checkbox" id="warm1"> Jumping Jacks</li>
+    <li><input type="checkbox" id="warm2"> Arm Circles</li>
+    <li><input type="checkbox" id="warm3"> Leg Swings</li>
+  </ul>
+  <h2>Cool-down</h2>
+  <ul>
+    <li><input type="checkbox" id="cool1"> Stretching</li>
+    <li><input type="checkbox" id="cool2"> Deep Breathing</li>
+    <li><input type="checkbox" id="cool3"> Foam Rolling</li>
+  </ul>
+  <div class="tabs">
+    <div class="tab" data-tab="day1">Day 1</div>
+    <div class="tab" data-tab="day2">Day 2</div>
+    <div class="tab" data-tab="day3">Day 3</div>
+  </div>
+  <div id="day1" class="tab-content">
+    <h2>Day 1 (Lower — Squat focus)</h2>
+    <table>
+      <tbody>
+        <tr>
+          <td data-label="Exercise">
+            <select id="d1r1_sel">
+              <option value="beginner">🟢 Beginner: Goblet Squat</option>
+              <option value="advanced">🔴 Advanced: Barbell Back Squat</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">8-12</td>
+          <td data-label="Actual Reps"><input type="number" id="d1r1_reps"></td>
+          <td data-label="Weight"><input type="text" id="d1r1_w"></td>
+          <td data-label="Notes"><textarea id="d1r1_n"></textarea></td>
+        </tr>
+        <tr>
+          <td data-label="Exercise">
+            <select id="d1r2_sel">
+              <option value="beginner">🟢 Beginner: Bodyweight Lunge</option>
+              <option value="advanced">🔴 Advanced: Bulgarian Split Squat</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">8-12</td>
+          <td data-label="Actual Reps"><input type="number" id="d1r2_reps"></td>
+          <td data-label="Weight"><input type="text" id="d1r2_w"></td>
+          <td data-label="Notes"><textarea id="d1r2_n"></textarea></td>
+        </tr>
+        <tr>
+          <td data-label="Exercise">
+            <select id="d1r3_sel">
+              <option value="beginner">🟢 Beginner: Glute Bridge</option>
+              <option value="advanced">🔴 Advanced: Barbell Hip Thrust</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">8-12</td>
+          <td data-label="Actual Reps"><input type="number" id="d1r3_reps"></td>
+          <td data-label="Weight"><input type="text" id="d1r3_w"></td>
+          <td data-label="Notes"><textarea id="d1r3_n"></textarea></td>
+        </tr>
+        <tr>
+          <td data-label="Exercise">
+            <select id="d1r4_sel">
+              <option value="beginner">🟢 Beginner: Leg Curl</option>
+              <option value="advanced">🔴 Advanced: Nordic Hamstring Curl</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">8-12</td>
+          <td data-label="Actual Reps"><input type="number" id="d1r4_reps"></td>
+          <td data-label="Weight"><input type="text" id="d1r4_w"></td>
+          <td data-label="Notes"><textarea id="d1r4_n"></textarea></td>
+        </tr>
+        <tr>
+          <td data-label="Exercise">
+            <select id="d1r5_sel">
+              <option value="beginner">🟢 Beginner: Calf Raise</option>
+              <option value="advanced">🔴 Advanced: Seated Calf Raise</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">8-12</td>
+          <td data-label="Actual Reps"><input type="number" id="d1r5_reps"></td>
+          <td data-label="Weight"><input type="text" id="d1r5_w"></td>
+          <td data-label="Notes"><textarea id="d1r5_n"></textarea></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="day2" class="tab-content">
+    <h2>Day 2 (Upper — Back & Shoulders)</h2>
+    <table>
+      <tbody>
+        <tr>
+          <td data-label="Exercise">
+            <select id="d2r1_sel">
+              <option value="beginner">🟢 Beginner: Lat Pulldown</option>
+              <option value="advanced">🔴 Advanced: Pull-Up</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">8-12</td>
+          <td data-label="Actual Reps"><input type="number" id="d2r1_reps"></td>
+          <td data-label="Weight"><input type="text" id="d2r1_w"></td>
+          <td data-label="Notes"><textarea id="d2r1_n"></textarea></td>
+        </tr>
+        <tr>
+          <td data-label="Exercise">
+            <select id="d2r2_sel">
+              <option value="beginner">🟢 Beginner: Seated Row</option>
+              <option value="advanced">🔴 Advanced: Bent-Over Row</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">8-12</td>
+          <td data-label="Actual Reps"><input type="number" id="d2r2_reps"></td>
+          <td data-label="Weight"><input type="text" id="d2r2_w"></td>
+          <td data-label="Notes"><textarea id="d2r2_n"></textarea></td>
+        </tr>
+        <tr>
+          <td data-label="Exercise">
+            <select id="d2r3_sel">
+              <option value="beginner">🟢 Beginner: Dumbbell Shoulder Press</option>
+              <option value="advanced">🔴 Advanced: Barbell Shoulder Press</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">8-12</td>
+          <td data-label="Actual Reps"><input type="number" id="d2r3_reps"></td>
+          <td data-label="Weight"><input type="text" id="d2r3_w"></td>
+          <td data-label="Notes"><textarea id="d2r3_n"></textarea></td>
+        </tr>
+        <tr>
+          <td data-label="Exercise">
+            <select id="d2r4_sel">
+              <option value="beginner">🟢 Beginner: Face Pull</option>
+              <option value="advanced">🔴 Advanced: Rear Delt Fly</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">8-12</td>
+          <td data-label="Actual Reps"><input type="number" id="d2r4_reps"></td>
+          <td data-label="Weight"><input type="text" id="d2r4_w"></td>
+          <td data-label="Notes"><textarea id="d2r4_n"></textarea></td>
+        </tr>
+        <tr>
+          <td data-label="Exercise">
+            <select id="d2r5_sel">
+              <option value="beginner">🟢 Beginner: Bicep Curl</option>
+              <option value="advanced">🔴 Advanced: Hammer Curl</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">8-12</td>
+          <td data-label="Actual Reps"><input type="number" id="d2r5_reps"></td>
+          <td data-label="Weight"><input type="text" id="d2r5_w"></td>
+          <td data-label="Notes"><textarea id="d2r5_n"></textarea></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="day3" class="tab-content">
+    <h2>Day 3 (Lower — Hinge focus)</h2>
+    <table>
+      <tbody>
+        <tr>
+          <td data-label="Exercise">
+            <select id="d3r1_sel">
+              <option value="beginner">🟢 Beginner: Romanian Deadlift</option>
+              <option value="advanced">🔴 Advanced: Conventional Deadlift</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">5-8</td>
+          <td data-label="Actual Reps"><input type="number" id="d3r1_reps"></td>
+          <td data-label="Weight"><input type="text" id="d3r1_w"></td>
+          <td data-label="Notes"><textarea id="d3r1_n"></textarea></td>
+        </tr>
+        <tr>
+          <td data-label="Exercise">
+            <select id="d3r2_sel">
+              <option value="beginner">🟢 Beginner: Good Morning</option>
+              <option value="advanced">🔴 Advanced: Barbell Good Morning</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">8-12</td>
+          <td data-label="Actual Reps"><input type="number" id="d3r2_reps"></td>
+          <td data-label="Weight"><input type="text" id="d3r2_w"></td>
+          <td data-label="Notes"><textarea id="d3r2_n"></textarea></td>
+        </tr>
+        <tr>
+          <td data-label="Exercise">
+            <select id="d3r3_sel">
+              <option value="beginner">🟢 Beginner: Glute Bridge</option>
+              <option value="advanced">🔴 Advanced: Barbell Hip Thrust</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">8-12</td>
+          <td data-label="Actual Reps"><input type="number" id="d3r3_reps"></td>
+          <td data-label="Weight"><input type="text" id="d3r3_w"></td>
+          <td data-label="Notes"><textarea id="d3r3_n"></textarea></td>
+        </tr>
+        <tr>
+          <td data-label="Exercise">
+            <select id="d3r4_sel">
+              <option value="beginner">🟢 Beginner: Single-Leg Deadlift</option>
+              <option value="advanced">🔴 Advanced: Single-Leg RDL</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">8-12</td>
+          <td data-label="Actual Reps"><input type="number" id="d3r4_reps"></td>
+          <td data-label="Weight"><input type="text" id="d3r4_w"></td>
+          <td data-label="Notes"><textarea id="d3r4_n"></textarea></td>
+        </tr>
+        <tr>
+          <td data-label="Exercise">
+            <select id="d3r5_sel">
+              <option value="beginner">🟢 Beginner: Hamstring Curl</option>
+              <option value="advanced">🔴 Advanced: Nordic Hamstring Curl</option>
+            </select>
+          </td>
+          <td data-label="Target Reps">8-12</td>
+          <td data-label="Actual Reps"><input type="number" id="d3r5_reps"></td>
+          <td data-label="Weight"><input type="text" id="d3r5_w"></td>
+          <td data-label="Notes"><textarea id="d3r5_n"></textarea></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>
