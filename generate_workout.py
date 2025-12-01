@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 
 # Configuration
-START_DATE = datetime(2024, 10, 26)  # Oct 26, 2024
+START_DATE = datetime(2025, 10, 26)  # Oct 26, 2025
 REPO_PATH = Path("/Users/jeffstephens/Desktop/AI Apps/workout-app -4:x")
 CYCLE_WEEKS = 12
 GITHUB_REPO = "rswweeklyplans/rsw-workouts"
