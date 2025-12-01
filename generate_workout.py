@@ -283,15 +283,20 @@ def generate_for_date(target_date):
 
 
 def generate_for_next_week():
-    """Generate workout for the upcoming Monday."""
+    """Generate workout for this Sunday (or next Sunday if not run on Sunday)."""
     today = datetime.now()
-    # Find next Monday
-    days_until_monday = (7 - today.weekday()) % 7
-    if days_until_monday == 0:
-        days_until_monday = 7  # If today is Monday, get next Monday
 
-    next_monday = today + timedelta(days=days_until_monday)
-    return generate_for_date(next_monday)
+    # If today is Sunday (weekday 6), generate for today
+    if today.weekday() == 6:
+        target_date = today
+    else:
+        # Find next Sunday
+        days_until_sunday = (6 - today.weekday()) % 7
+        if days_until_sunday == 0:
+            days_until_sunday = 7
+        target_date = today + timedelta(days=days_until_sunday)
+
+    return generate_for_date(target_date)
 
 
 def auto_commit_and_push():
