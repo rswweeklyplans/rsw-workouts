@@ -33,7 +33,8 @@ git add 4xweek/
 # Commit with message
 git commit -m "$COMMIT_MSG"
 
-# Push to GitHub
-git push origin main || git push origin master
+# Pull latest changes and push to GitHub
+git pull --rebase origin main
+git push origin main
 
 echo "✓ Changes committed and pushed to GitHub"
