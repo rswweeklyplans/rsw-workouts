@@ -11,7 +11,7 @@ from pathlib import Path
 
 # Configuration
 START_DATE = datetime(2025, 10, 26)  # Oct 26, 2025
-REPO_PATH = Path("/Users/jeffstephens/Desktop/AI Apps/workout-app -4:x")
+REPO_PATH = Path("/Users/jeffstephens/Projects/workout-app")
 CYCLE_WEEKS = 12
 GITHUB_REPO = "rswweeklyplans/rsw-workouts"
 
