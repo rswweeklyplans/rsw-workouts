@@ -30,6 +30,7 @@
   .notes{display:flex; flex-direction:column; gap:6px; font-size:.85rem}
   textarea{border:1px solid #d1d5db; border-radius:10px; padding:10px; background:white}
   .cue,.pattern{font-size:.85rem; color:#374151; margin-top:6px}
+  .at-home-cue{background:#fef3c7; border-left:3px solid var(--gold); padding:8px 10px; border-radius:6px; margin-top:8px; font-size:.85rem; color:#92400e}
   .mini ul{margin:8px 0 0 18px}
   .footer a{color:var(--olive); text-decoration:underline}
   .liblinks a{margin-right:12px}
@@ -55,8 +56,8 @@
         <div class="equip">
           <label>Equipment</label>
           <select data-key="Jan 25, 2026__day1__barbell-hip-thrust__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -77,14 +78,17 @@
       <div class="pattern">Pattern: glute</div>
     </div>
 
-    <div class="exercise">
+    <div class="exercise" data-exercise="hack-squat">
       <div class="ex-head">
-        <div class="ex-title"><strong>Hack Squat (wide stance)</strong> <span class="badge">6-8 • Rest 90-120s</span></div>
+        <div class="ex-title">
+          <strong class="ex-name">Hack Squat (wide stance)</strong> 
+          <span class="badge">6-8 • Rest 90-120s</span>
+        </div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Jan 25, 2026__day1__hack-squat-wide-stance__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Jan 25, 2026__day1__hack-squat-wide-stance__equip" class="equip-select">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -103,6 +107,7 @@
 
       <div class="cue">Progression cue: add 1 rep per set</div>
       <div class="pattern">Pattern: squat</div>
+      <div class="at-home-cue" style="display:none;">👉 <strong>Cue:</strong> Keep torso upright and drive knees forward.</div>
     </div>
 
     <div class="exercise">
@@ -111,8 +116,8 @@
         <div class="equip">
           <label>Equipment</label>
           <select data-key="Jan 25, 2026__day1__bulgarian-split-squat-glute-bias__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -133,14 +138,17 @@
       <div class="pattern">Pattern: lunge</div>
     </div>
 
-    <div class="exercise">
+    <div class="exercise" data-exercise="seated-leg-curl">
       <div class="ex-head">
-        <div class="ex-title"><strong>Seated Leg Curl</strong> <span class="badge">10-12 • Rest 60s</span></div>
+        <div class="ex-title">
+          <strong class="ex-name">Seated Leg Curl</strong> 
+          <span class="badge">10-12 • Rest 60s</span>
+        </div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Jan 25, 2026__day1__seated-leg-curl__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Jan 25, 2026__day1__seated-leg-curl__equip" class="equip-select">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -159,16 +167,20 @@
 
       <div class="cue">Progression cue: beat last week's total reps</div>
       <div class="pattern">Pattern: hinge</div>
+      <div class="at-home-cue" style="display:none;">👉 <strong>Cue:</strong> Slow on the way out, squeeze at the top.</div>
     </div>
 
-    <div class="exercise">
+    <div class="exercise" data-exercise="cable-kickbacks">
       <div class="ex-head">
-        <div class="ex-title"><strong>Cable Kickbacks</strong> <span class="badge">12-15/side • Rest 45-60s</span></div>
+        <div class="ex-title">
+          <strong class="ex-name">Cable Kickbacks</strong> 
+          <span class="badge">12-15/side • Rest 45-60s</span>
+        </div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Jan 25, 2026__day1__cable-kickbacks__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Jan 25, 2026__day1__cable-kickbacks__equip" class="equip-select">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -187,16 +199,20 @@
 
       <div class="cue">Progression cue: add 1 rep per set</div>
       <div class="pattern">Pattern: glute</div>
+      <div class="at-home-cue" style="display:none;">👉 <strong>Cue:</strong> Small range, glute squeeze, no low-back arching.</div>
     </div>
 
-    <div class="exercise">
+    <div class="exercise" data-exercise="ghd-sit-ups">
       <div class="ex-head">
-        <div class="ex-title"><strong>GHD Sit-Ups</strong> <span class="badge">8-12 • Rest 60s</span></div>
+        <div class="ex-title">
+          <strong class="ex-name">GHD Sit-Ups</strong> 
+          <span class="badge">8-12 • Rest 60s</span>
+        </div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Jan 25, 2026__day1__ghd-sit-ups__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Jan 25, 2026__day1__ghd-sit-ups__equip" class="equip-select">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -215,6 +231,7 @@
 
       <div class="cue">Progression cue: improve control on eccentric</div>
       <div class="pattern">Pattern: core</div>
+      <div class="at-home-cue" style="display:none;">👉 <strong>Cue:</strong> Control the descent, don't yank with momentum.</div>
     </div>
     </section>
 
@@ -227,8 +244,8 @@
         <div class="equip">
           <label>Equipment</label>
           <select data-key="Jan 25, 2026__day2__shoulder-press-barbell-or-dumbbell__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -255,8 +272,8 @@
         <div class="equip">
           <label>Equipment</label>
           <select data-key="Jan 25, 2026__day2__dumbbell-lateral-raise__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -283,8 +300,8 @@
         <div class="equip">
           <label>Equipment</label>
           <select data-key="Jan 25, 2026__day2__incline-dumbbell-press__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -305,14 +322,17 @@
       <div class="pattern">Pattern: press</div>
     </div>
 
-    <div class="exercise">
+    <div class="exercise" data-exercise="pull-ups">
       <div class="ex-head">
-        <div class="ex-title"><strong>Pull-Ups</strong> <span class="badge">max reps • Rest 90-120s</span></div>
+        <div class="ex-title">
+          <strong class="ex-name">Pull-Ups</strong> 
+          <span class="badge">max reps • Rest 90-120s</span>
+        </div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Jan 25, 2026__day2__pull-ups__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Jan 25, 2026__day2__pull-ups__equip" class="equip-select">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -331,6 +351,7 @@
 
       <div class="cue">Progression cue: beat last week's total reps</div>
       <div class="pattern">Pattern: pull</div>
+      <div class="at-home-cue" style="display:none;">👉 <strong>Cue:</strong> Pull elbows down and in, not straight back.</div>
     </div>
 
     <div class="exercise">
@@ -339,8 +360,8 @@
         <div class="equip">
           <label>Equipment</label>
           <select data-key="Jan 25, 2026__day2__barbell-dumbbell-row__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -361,14 +382,17 @@
       <div class="pattern">Pattern: row</div>
     </div>
 
-    <div class="exercise">
+    <div class="exercise" data-exercise="lat-pulldown">
       <div class="ex-head">
-        <div class="ex-title"><strong>Lat Pulldown</strong> <span class="badge">10-12 • Rest 60-90s</span></div>
+        <div class="ex-title">
+          <strong class="ex-name">Lat Pulldown</strong> 
+          <span class="badge">10-12 • Rest 60-90s</span>
+        </div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Jan 25, 2026__day2__lat-pulldown__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Jan 25, 2026__day2__lat-pulldown__equip" class="equip-select">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -387,16 +411,20 @@
 
       <div class="cue">Progression cue: add 1 rep per set</div>
       <div class="pattern">Pattern: pull</div>
+      <div class="at-home-cue" style="display:none;">👉 <strong>Cue:</strong> Pull elbows down and in, not straight back.</div>
     </div>
 
-    <div class="exercise">
+    <div class="exercise" data-exercise="face-pulls">
       <div class="ex-head">
-        <div class="ex-title"><strong>Face Pulls</strong> <span class="badge">15-20 • Rest 45-60s</span></div>
+        <div class="ex-title">
+          <strong class="ex-name">Face Pulls</strong> 
+          <span class="badge">15-20 • Rest 45-60s</span>
+        </div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Jan 25, 2026__day2__face-pulls__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Jan 25, 2026__day2__face-pulls__equip" class="equip-select">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -415,6 +443,7 @@
 
       <div class="cue">Progression cue: improve control on eccentric</div>
       <div class="pattern">Pattern: rear delt</div>
+      <div class="at-home-cue" style="display:none;">👉 <strong>Cue:</strong> Elbows high, squeeze shoulder blades.</div>
     </div>
 
     <div class="exercise">
@@ -423,8 +452,8 @@
         <div class="equip">
           <label>Equipment</label>
           <select data-key="Jan 25, 2026__day2__bicep-curl-barbell-or-dumbbell__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -455,8 +484,8 @@
         <div class="equip">
           <label>Equipment</label>
           <select data-key="Jan 25, 2026__day3__b-stance-single-leg-hip-thrust__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -477,14 +506,17 @@
       <div class="pattern">Pattern: glute</div>
     </div>
 
-    <div class="exercise">
+    <div class="exercise" data-exercise="leg-press">
       <div class="ex-head">
-        <div class="ex-title"><strong>Leg Press (high & wide foot placement)</strong> <span class="badge">10-12 • Rest 90s</span></div>
+        <div class="ex-title">
+          <strong class="ex-name">Leg Press (high & wide foot placement)</strong> 
+          <span class="badge">10-12 • Rest 90s</span>
+        </div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Jan 25, 2026__day3__leg-press-high-wide-foot-placement__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Jan 25, 2026__day3__leg-press-high-wide-foot-placement__equip" class="equip-select">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -503,6 +535,7 @@
 
       <div class="cue">Progression cue: +5 lb next week</div>
       <div class="pattern">Pattern: squat</div>
+      <div class="at-home-cue" style="display:none;">👉 <strong>Cue:</strong> Full foot pressure, controlled tempo.</div>
     </div>
 
     <div class="exercise">
@@ -511,8 +544,8 @@
         <div class="equip">
           <label>Equipment</label>
           <select data-key="Jan 25, 2026__day3__sumo-squat-deadlift__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -533,14 +566,17 @@
       <div class="pattern">Pattern: hinge</div>
     </div>
 
-    <div class="exercise">
+    <div class="exercise" data-exercise="adductor-machine">
       <div class="ex-head">
-        <div class="ex-title"><strong>Adductor Machine</strong> <span class="badge">12-15 • Rest 60s</span></div>
+        <div class="ex-title">
+          <strong class="ex-name">Adductor Machine</strong> 
+          <span class="badge">12-15 • Rest 60s</span>
+        </div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Jan 25, 2026__day3__adductor-machine__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Jan 25, 2026__day3__adductor-machine__equip" class="equip-select">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -559,6 +595,7 @@
 
       <div class="cue">Progression cue: beat last week's total reps</div>
       <div class="pattern">Pattern: accessory</div>
+      <div class="at-home-cue" style="display:none;">👉 <strong>Cue:</strong> Slow squeeze, stay tall through the torso.</div>
     </div>
 
     <div class="exercise">
@@ -567,8 +604,8 @@
         <div class="equip">
           <label>Equipment</label>
           <select data-key="Jan 25, 2026__day3__frog-pumps-band-abductions__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -589,14 +626,17 @@
       <div class="pattern">Pattern: glute</div>
     </div>
 
-    <div class="exercise">
+    <div class="exercise" data-exercise="ghd-sit-ups-2">
       <div class="ex-head">
-        <div class="ex-title"><strong>GHD Sit-Ups</strong> <span class="badge">10-15 • Rest 60s</span></div>
+        <div class="ex-title">
+          <strong class="ex-name">GHD Sit-Ups</strong> 
+          <span class="badge">10-15 • Rest 60s</span>
+        </div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Jan 25, 2026__day3__ghd-sit-ups__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Jan 25, 2026__day3__ghd-sit-ups__equip" class="equip-select">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -615,6 +655,7 @@
 
       <div class="cue">Progression cue: improve control on eccentric</div>
       <div class="pattern">Pattern: core</div>
+      <div class="at-home-cue" style="display:none;">👉 <strong>Cue:</strong> Control the descent, don't yank with momentum.</div>
     </div>
     </section>
 
@@ -641,8 +682,93 @@
   </div>
 
   <script>
+    // Exercise swap definitions
+    const exerciseSwaps = {
+      'hack-squat': {
+        gym: 'Hack Squat (wide stance)',
+        home: 'Heels-Elevated Goblet Squat',
+        cue: 'Keep torso upright and drive knees forward.'
+      },
+      'seated-leg-curl': {
+        gym: 'Seated Leg Curl',
+        home: 'Slider Hamstring Curls',
+        cue: 'Slow on the way out, squeeze at the top.'
+      },
+      'cable-kickbacks': {
+        gym: 'Cable Kickbacks',
+        home: 'DB Single-Leg Glute Bridge',
+        cue: 'Small range, glute squeeze, no low-back arching.'
+      },
+      'ghd-sit-ups': {
+        gym: 'GHD Sit-Ups',
+        home: 'Dead Bugs or Hollow Body Holds',
+        cue: 'Control the descent, don\'t yank with momentum.'
+      },
+      'ghd-sit-ups-2': {
+        gym: 'GHD Sit-Ups',
+        home: 'Dead Bugs or Hollow Body Holds',
+        cue: 'Control the descent, don\'t yank with momentum.'
+      },
+      'pull-ups': {
+        gym: 'Pull-Ups',
+        home: 'Dumbbell Pullovers',
+        cue: 'Pull elbows down and in, not straight back.'
+      },
+      'lat-pulldown': {
+        gym: 'Lat Pulldown',
+        home: 'Dumbbell Pullovers',
+        cue: 'Pull elbows down and in, not straight back.'
+      },
+      'face-pulls': {
+        gym: 'Face Pulls',
+        home: 'Prone Y-Raises',
+        cue: 'Elbows high, squeeze shoulder blades.'
+      },
+      'leg-press': {
+        gym: 'Leg Press (high & wide foot placement)',
+        home: 'DB Step-Ups',
+        cue: 'Full foot pressure, controlled tempo.'
+      },
+      'adductor-machine': {
+        gym: 'Adductor Machine',
+        home: 'DB Sumo Squats',
+        cue: 'Slow squeeze, stay tall through the torso.'
+      }
+    };
+
+    // Handle equipment dropdown changes
+    const handleEquipmentChange = (e) => {
+      const select = e.target;
+      if (!select.classList.contains('equip-select')) return;
+      
+      const exerciseDiv = select.closest('[data-exercise]');
+      if (!exerciseDiv) return;
+      
+      const exerciseKey = exerciseDiv.getAttribute('data-exercise');
+      const swap = exerciseSwaps[exerciseKey];
+      if (!swap) return;
+      
+      const mode = select.value;
+      const titleElement = exerciseDiv.querySelector('.ex-name');
+      const cueElement = exerciseDiv.querySelector('.at-home-cue');
+      
+      if (mode === 'home') {
+        titleElement.textContent = swap.home;
+        if (cueElement) {
+          cueElement.innerHTML = `👉 <strong>Cue:</strong> ${swap.cue}`;
+          cueElement.style.display = 'block';
+        }
+      } else {
+        titleElement.textContent = swap.gym;
+        if (cueElement) {
+          cueElement.style.display = 'none';
+        }
+      }
+    };
+
+    // Restore all saved data from localStorage
     const restore = () => {
-      document.querySelectorAll('[data-key]').forEach(el=>{
+      document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.getAttribute('data-key');
         if (el.type === 'checkbox') {
           el.checked = localStorage.getItem(key) === '1';
@@ -651,14 +777,28 @@
           if (v !== null) el.value = v;
         }
       });
+      
+      // Restore exercise swaps based on equipment selection
+      document.querySelectorAll('[data-exercise]').forEach(exerciseDiv => {
+        const select = exerciseDiv.querySelector('.equip-select');
+        if (select) {
+          handleEquipmentChange({ target: select });
+        }
+      });
     };
+
+    // Persist data to localStorage
     const persist = (e) => {
       const el = e.target;
       if (!el || !el.hasAttribute('data-key')) return;
       const key = el.getAttribute('data-key');
       const val = (el.type === 'checkbox') ? (el.checked ? '1':'0') : el.value;
       localStorage.setItem(key, val);
+      
+      // Handle equipment changes
+      handleEquipmentChange(e);
     };
+
     window.addEventListener('change', persist, true);
     window.addEventListener('DOMContentLoaded', restore);
   </script>
