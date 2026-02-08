@@ -30,6 +30,7 @@
   .notes{display:flex; flex-direction:column; gap:6px; font-size:.85rem}
   textarea{border:1px solid #d1d5db; border-radius:10px; padding:10px; background:white}
   .cue,.pattern{font-size:.85rem; color:#374151; margin-top:6px}
+  .at-home-cue{background:#fef3c7; border-left:3px solid var(--gold); padding:8px 10px; border-radius:6px; margin-top:8px; font-size:.85rem; color:#92400e}
   .mini ul{margin:8px 0 0 18px}
   .footer a{color:var(--olive); text-decoration:underline}
   .liblinks a{margin-right:12px}
@@ -40,9 +41,9 @@
   <div class="wrap">
     <header>
       <h1>RSW Weekly Plan — Feb 8, 2026</h1>
-      <div class="meta"><strong>Phase:</strong> Strength Building — 6-week progressive overload program focusing on glute and upper body development • Week 4</div>
-      <div class="goal"><strong>Goal of the week:</strong> Focus on adding weight where possible and improving form for consistent gains.</div>
-      <p class="intro">You're halfway through! Consistency and small improvements lead to big changes. Keep pushing your limits and watch your strength grow.</p>
+      <div class="meta"><strong>Phase:</strong> Strength Building — 6-week progressive overload program focusing on glute and upper body development • Week 1</div>
+      <div class="goal"><strong>Goal of the week:</strong> Increase weight or reps compared to last week. Focus on form and mind-muscle connection.</div>
+      <p class="intro">Week 1 is all about building on your foundation. Push yourself to add a bit more than last week. Consistency is your secret weapon for strength.</p>
     </header>
 
     
@@ -55,8 +56,8 @@
         <div class="equip">
           <label>Equipment</label>
           <select data-key="Feb 8, 2026__day1__barbell-hip-thrust__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -77,14 +78,17 @@
       <div class="pattern">Pattern: glute</div>
     </div>
 
-    <div class="exercise">
+    <div class="exercise" data-exercise="hack-squat">
       <div class="ex-head">
-        <div class="ex-title"><strong>Hack Squat (wide stance)</strong> <span class="badge">6-8 • Rest 90-120s</span></div>
+        <div class="ex-title">
+          <strong class="ex-name">Hack Squat (wide stance)</strong> 
+          <span class="badge">6-8 • Rest 90-120s</span>
+        </div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Feb 8, 2026__day1__hack-squat-wide-stance__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Feb 8, 2026__day1__hack-squat-wide-stance__equip" class="equip-select">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -103,6 +107,7 @@
 
       <div class="cue">Progression cue: add 1 rep per set</div>
       <div class="pattern">Pattern: squat</div>
+      <div class="at-home-cue" style="display:none;">👉 <strong>Cue:</strong> Keep torso upright and drive knees forward.</div>
     </div>
 
     <div class="exercise">
@@ -111,8 +116,8 @@
         <div class="equip">
           <label>Equipment</label>
           <select data-key="Feb 8, 2026__day1__bulgarian-split-squat-glute-bias__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -133,14 +138,17 @@
       <div class="pattern">Pattern: lunge</div>
     </div>
 
-    <div class="exercise">
+    <div class="exercise" data-exercise="seated-leg-curl">
       <div class="ex-head">
-        <div class="ex-title"><strong>Seated Leg Curl</strong> <span class="badge">10-12 • Rest 60s</span></div>
+        <div class="ex-title">
+          <strong class="ex-name">Seated Leg Curl</strong> 
+          <span class="badge">10-12 • Rest 60-90s</span>
+        </div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Feb 8, 2026__day1__seated-leg-curl__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Feb 8, 2026__day1__seated-leg-curl__equip" class="equip-select">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -157,18 +165,22 @@
         <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day1__seated-leg-curl__notes"></textarea>
       </label>
 
-      <div class="cue">Progression cue: beat last week's total reps</div>
-      <div class="pattern">Pattern: hinge</div>
+      <div class="cue">Progression cue: add 1 rep per set</div>
+      <div class="pattern">Pattern: hamstring</div>
+      <div class="at-home-cue" style="display:none;">👉 <strong>Cue:</strong> Slow on the way out, squeeze at the top.</div>
     </div>
 
-    <div class="exercise">
+    <div class="exercise" data-exercise="cable-kickbacks">
       <div class="ex-head">
-        <div class="ex-title"><strong>Cable Kickbacks</strong> <span class="badge">12-15/side • Rest 45-60s</span></div>
+        <div class="ex-title">
+          <strong class="ex-name">Cable Kickbacks</strong> 
+          <span class="badge">12-15/side • Rest 45s</span>
+        </div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Feb 8, 2026__day1__cable-kickbacks__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Feb 8, 2026__day1__cable-kickbacks__equip" class="equip-select">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -185,18 +197,54 @@
         <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day1__cable-kickbacks__notes"></textarea>
       </label>
 
-      <div class="cue">Progression cue: add 1 rep per set</div>
-      <div class="pattern">Pattern: glute</div>
+      <div class="cue">Progression cue: beat last week's total reps</div>
+      <div class="pattern">Pattern: glute isolation</div>
+      <div class="at-home-cue" style="display:none;">👉 <strong>Cue:</strong> Small range, glute squeeze, no low-back arching.</div>
     </div>
 
-    <div class="exercise">
+    <div class="exercise" data-exercise="adductor-machine">
       <div class="ex-head">
-        <div class="ex-title"><strong>GHD Sit-Ups</strong> <span class="badge">8-12 • Rest 60s</span></div>
+        <div class="ex-title">
+          <strong class="ex-name">Adductor Machine</strong> 
+          <span class="badge">12-15 • Rest 45s</span>
+        </div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Feb 8, 2026__day1__ghd-sit-ups__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Feb 8, 2026__day1__adductor-machine__equip" class="equip-select">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day1__adductor-machine__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day1__adductor-machine__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day1__adductor-machine__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day1__adductor-machine__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day1__adductor-machine__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day1__adductor-machine__set_3"><span>Set 3</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day1__adductor-machine__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: add 1 rep per set</div>
+      <div class="pattern">Pattern: adductor</div>
+      <div class="at-home-cue" style="display:none;">👉 <strong>Cue:</strong> Slow squeeze, stay tall through the torso.</div>
+    </div>
+
+    <div class="exercise" data-exercise="ghd-sit-ups">
+      <div class="ex-head">
+        <div class="ex-title">
+          <strong class="ex-name">GHD Sit-Ups</strong> 
+          <span class="badge">10-15 • Rest 60s</span>
+        </div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="Feb 8, 2026__day1__ghd-sit-ups__equip" class="equip-select">
+            <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -213,36 +261,38 @@
         <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day1__ghd-sit-ups__notes"></textarea>
       </label>
 
-      <div class="cue">Progression cue: improve form</div>
+      <div class="cue">Progression cue: add 1 rep per set</div>
       <div class="pattern">Pattern: core</div>
+      <div class="at-home-cue" style="display:none;">👉 <strong>Cue:</strong> Control the descent, don't yank with momentum.</div>
     </div>
     </section>
 
+    
     <section class="workout">
-      <h2>Tuesday: Upper Push – Shoulders & Chest</h2>
+      <h2>Tuesday: Upper A – Push Focus</h2>
       
     <div class="exercise">
       <div class="ex-head">
-        <div class="ex-title"><strong>Shoulder Press (Barbell or Dumbbell)</strong> <span class="badge">5-7 • Rest 90-120s</span></div>
+        <div class="ex-title"><strong>Bench Press (Barbell or Dumbbell)</strong> <span class="badge">5-6 • Rest 120-180s</span></div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Feb 8, 2026__day2__shoulder-press-barbell-or-dumbbell__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Feb 8, 2026__day2__bench-press-barbell-or-dumbbell__equip">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
 
       <div class="trackers">
-        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day2__shoulder-press-barbell-or-dumbbell__weight"></label>
-        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day2__shoulder-press-barbell-or-dumbbell__reps"></label>
-        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day2__shoulder-press-barbell-or-dumbbell__rpe"></label>
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day2__bench-press-barbell-or-dumbbell__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day2__bench-press-barbell-or-dumbbell__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day2__bench-press-barbell-or-dumbbell__rpe"></label>
       </div>
 
-      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__shoulder-press-barbell-or-dumbbell__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__shoulder-press-barbell-or-dumbbell__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__shoulder-press-barbell-or-dumbbell__set_3"><span>Set 3</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__shoulder-press-barbell-or-dumbbell__set_4"><span>Set 4</span></label></div>
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__bench-press-barbell-or-dumbbell__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__bench-press-barbell-or-dumbbell__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__bench-press-barbell-or-dumbbell__set_3"><span>Set 3</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__bench-press-barbell-or-dumbbell__set_4"><span>Set 4</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__bench-press-barbell-or-dumbbell__set_5"><span>Set 5</span></label></div>
 
       <label class="notes">Notes
-        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day2__shoulder-press-barbell-or-dumbbell__notes"></textarea>
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day2__bench-press-barbell-or-dumbbell__notes"></textarea>
       </label>
 
       <div class="cue">Progression cue: +5 lb next week</div>
@@ -251,40 +301,12 @@
 
     <div class="exercise">
       <div class="ex-head">
-        <div class="ex-title"><strong>Dumbbell Lateral Raise</strong> <span class="badge">12-15 • Rest 60s</span></div>
-        <div class="equip">
-          <label>Equipment</label>
-          <select data-key="Feb 8, 2026__day2__dumbbell-lateral-raise__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
-            <option value="gym">At gym: Barbell/Machines</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="trackers">
-        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day2__dumbbell-lateral-raise__weight"></label>
-        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day2__dumbbell-lateral-raise__reps"></label>
-        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day2__dumbbell-lateral-raise__rpe"></label>
-      </div>
-
-      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__dumbbell-lateral-raise__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__dumbbell-lateral-raise__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__dumbbell-lateral-raise__set_3"><span>Set 3</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__dumbbell-lateral-raise__set_4"><span>Set 4</span></label></div>
-
-      <label class="notes">Notes
-        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day2__dumbbell-lateral-raise__notes"></textarea>
-      </label>
-
-      <div class="cue">Progression cue: dropset on final set</div>
-      <div class="pattern">Pattern: isolation</div>
-    </div>
-
-    <div class="exercise">
-      <div class="ex-head">
-        <div class="ex-title"><strong>Incline Dumbbell Press</strong> <span class="badge">8-10 • Rest 90s</span></div>
+        <div class="ex-title"><strong>Incline Dumbbell Press</strong> <span class="badge">8-10 • Rest 90-120s</span></div>
         <div class="equip">
           <label>Equipment</label>
           <select data-key="Feb 8, 2026__day2__incline-dumbbell-press__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -295,10 +317,38 @@
         <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day2__incline-dumbbell-press__rpe"></label>
       </div>
 
-      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__incline-dumbbell-press__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__incline-dumbbell-press__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__incline-dumbbell-press__set_3"><span>Set 3</span></label></div>
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__incline-dumbbell-press__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__incline-dumbbell-press__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__incline-dumbbell-press__set_3"><span>Set 3</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__incline-dumbbell-press__set_4"><span>Set 4</span></label></div>
 
       <label class="notes">Notes
         <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day2__incline-dumbbell-press__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: add 1 rep per set</div>
+      <div class="pattern">Pattern: push</div>
+    </div>
+
+    <div class="exercise">
+      <div class="ex-head">
+        <div class="ex-title"><strong>Overhead Press (Seated or Standing)</strong> <span class="badge">6-8 • Rest 90-120s</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="Feb 8, 2026__day2__overhead-press-seated-or-standing__equip">
+            <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day2__overhead-press-seated-or-standing__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day2__overhead-press-seated-or-standing__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day2__overhead-press-seated-or-standing__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__overhead-press-seated-or-standing__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__overhead-press-seated-or-standing__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__overhead-press-seated-or-standing__set_3"><span>Set 3</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__overhead-press-seated-or-standing__set_4"><span>Set 4</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day2__overhead-press-seated-or-standing__notes"></textarea>
       </label>
 
       <div class="cue">Progression cue: add 1 rep per set</div>
@@ -307,314 +357,352 @@
 
     <div class="exercise">
       <div class="ex-head">
-        <div class="ex-title"><strong>Cable Lateral Raise (single arm)</strong> <span class="badge">15-20/side • Rest 45s</span></div>
+        <div class="ex-title"><strong>Dumbbell Lateral Raise</strong> <span class="badge">12-15 • Rest 60s</span></div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Feb 8, 2026__day2__cable-lateral-raise-single-arm__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Feb 8, 2026__day2__dumbbell-lateral-raise__equip">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
 
       <div class="trackers">
-        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day2__cable-lateral-raise-single-arm__weight"></label>
-        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day2__cable-lateral-raise-single-arm__reps"></label>
-        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day2__cable-lateral-raise-single-arm__rpe"></label>
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day2__dumbbell-lateral-raise__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day2__dumbbell-lateral-raise__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day2__dumbbell-lateral-raise__rpe"></label>
       </div>
 
-      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__cable-lateral-raise-single-arm__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__cable-lateral-raise-single-arm__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__cable-lateral-raise-single-arm__set_3"><span>Set 3</span></label></div>
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__dumbbell-lateral-raise__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__dumbbell-lateral-raise__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__dumbbell-lateral-raise__set_3"><span>Set 3</span></label></div>
 
       <label class="notes">Notes
-        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day2__cable-lateral-raise-single-arm__notes"></textarea>
-      </label>
-
-      <div class="cue">Progression cue: add 1 rep per set</div>
-      <div class="pattern">Pattern: isolation</div>
-    </div>
-
-    <div class="exercise">
-      <div class="ex-head">
-        <div class="ex-title"><strong>Overhead Triceps Extension</strong> <span class="badge">10-12 • Rest 60s</span></div>
-        <div class="equip">
-          <label>Equipment</label>
-          <select data-key="Feb 8, 2026__day2__overhead-triceps-extension__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
-            <option value="gym">At gym: Barbell/Machines</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="trackers">
-        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day2__overhead-triceps-extension__weight"></label>
-        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day2__overhead-triceps-extension__reps"></label>
-        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day2__overhead-triceps-extension__rpe"></label>
-      </div>
-
-      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__overhead-triceps-extension__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__overhead-triceps-extension__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__overhead-triceps-extension__set_3"><span>Set 3</span></label></div>
-
-      <label class="notes">Notes
-        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day2__overhead-triceps-extension__notes"></textarea>
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day2__dumbbell-lateral-raise__notes"></textarea>
       </label>
 
       <div class="cue">Progression cue: beat last week's total reps</div>
-      <div class="pattern">Pattern: push</div>
+      <div class="pattern">Pattern: lateral delt</div>
     </div>
-    </section>
 
-    <section class="workout">
-      <h2>Thursday: Lower B – Glute & Posterior Chain</h2>
-      
     <div class="exercise">
       <div class="ex-head">
-        <div class="ex-title"><strong>B-Stance / Single-Leg Hip Thrust</strong> <span class="badge">8-10/side • Rest 60-90s</span></div>
+        <div class="ex-title"><strong>Overhead Tricep Extension (Dumbbell or Cable)</strong> <span class="badge">10-12 • Rest 60s</span></div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Feb 8, 2026__day3__b-stance-single-leg-hip-thrust__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Feb 8, 2026__day2__overhead-tricep-extension-dumbbell-or-cable__equip">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
 
       <div class="trackers">
-        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day3__b-stance-single-leg-hip-thrust__weight"></label>
-        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day3__b-stance-single-leg-hip-thrust__reps"></label>
-        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day3__b-stance-single-leg-hip-thrust__rpe"></label>
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day2__overhead-tricep-extension-dumbbell-or-cable__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day2__overhead-tricep-extension-dumbbell-or-cable__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day2__overhead-tricep-extension-dumbbell-or-cable__rpe"></label>
       </div>
 
-      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__b-stance-single-leg-hip-thrust__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__b-stance-single-leg-hip-thrust__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__b-stance-single-leg-hip-thrust__set_3"><span>Set 3</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__b-stance-single-leg-hip-thrust__set_4"><span>Set 4</span></label></div>
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__overhead-tricep-extension-dumbbell-or-cable__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__overhead-tricep-extension-dumbbell-or-cable__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__overhead-tricep-extension-dumbbell-or-cable__set_3"><span>Set 3</span></label></div>
 
       <label class="notes">Notes
-        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day3__b-stance-single-leg-hip-thrust__notes"></textarea>
-      </label>
-
-      <div class="cue">Progression cue: +5 lb next week</div>
-      <div class="pattern">Pattern: glute</div>
-    </div>
-
-    <div class="exercise">
-      <div class="ex-head">
-        <div class="ex-title"><strong>Leg Press (high & wide foot placement)</strong> <span class="badge">10-12 • Rest 90s</span></div>
-        <div class="equip">
-          <label>Equipment</label>
-          <select data-key="Feb 8, 2026__day3__leg-press-high-wide-foot-placement__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
-            <option value="gym">At gym: Barbell/Machines</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="trackers">
-        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day3__leg-press-high-wide-foot-placement__weight"></label>
-        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day3__leg-press-high-wide-foot-placement__reps"></label>
-        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day3__leg-press-high-wide-foot-placement__rpe"></label>
-      </div>
-
-      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__leg-press-high-wide-foot-placement__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__leg-press-high-wide-foot-placement__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__leg-press-high-wide-foot-placement__set_3"><span>Set 3</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__leg-press-high-wide-foot-placement__set_4"><span>Set 4</span></label></div>
-
-      <label class="notes">Notes
-        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day3__leg-press-high-wide-foot-placement__notes"></textarea>
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day2__overhead-tricep-extension-dumbbell-or-cable__notes"></textarea>
       </label>
 
       <div class="cue">Progression cue: add 1 rep per set</div>
-      <div class="pattern">Pattern: squat</div>
+      <div class="pattern">Pattern: triceps</div>
     </div>
 
     <div class="exercise">
       <div class="ex-head">
-        <div class="ex-title"><strong>Sumo Squat / Deadlift</strong> <span class="badge">6-8 • Rest 90-120s</span></div>
+        <div class="ex-title"><strong>Tricep Pushdown (Cable or Band)</strong> <span class="badge">12-15 • Rest 45s</span></div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Feb 8, 2026__day3__sumo-squat-deadlift__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Feb 8, 2026__day2__tricep-pushdown-cable-or-band__equip">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
 
       <div class="trackers">
-        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day3__sumo-squat-deadlift__weight"></label>
-        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day3__sumo-squat-deadlift__reps"></label>
-        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day3__sumo-squat-deadlift__rpe"></label>
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day2__tricep-pushdown-cable-or-band__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day2__tricep-pushdown-cable-or-band__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day2__tricep-pushdown-cable-or-band__rpe"></label>
       </div>
 
-      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__sumo-squat-deadlift__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__sumo-squat-deadlift__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__sumo-squat-deadlift__set_3"><span>Set 3</span></label></div>
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__tricep-pushdown-cable-or-band__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day2__tricep-pushdown-cable-or-band__set_2"><span>Set 2</span></label></div>
 
       <label class="notes">Notes
-        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day3__sumo-squat-deadlift__notes"></textarea>
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day2__tricep-pushdown-cable-or-band__notes"></textarea>
       </label>
 
       <div class="cue">Progression cue: improve form</div>
+      <div class="pattern">Pattern: triceps</div>
+    </div>
+    </section>
+
+    
+    <section class="workout">
+      <h2>Wednesday: Lower B – Hamstring & Glute Focus</h2>
+      
+    <div class="exercise">
+      <div class="ex-head">
+        <div class="ex-title"><strong>Romanian Deadlift (Barbell or Dumbbells)</strong> <span class="badge">6-8 • Rest 90-120s</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="Feb 8, 2026__day3__romanian-deadlift-barbell-or-dumbbells__equip">
+            <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day3__romanian-deadlift-barbell-or-dumbbells__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day3__romanian-deadlift-barbell-or-dumbbells__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day3__romanian-deadlift-barbell-or-dumbbells__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__romanian-deadlift-barbell-or-dumbbells__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__romanian-deadlift-barbell-or-dumbbells__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__romanian-deadlift-barbell-or-dumbbells__set_3"><span>Set 3</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__romanian-deadlift-barbell-or-dumbbells__set_4"><span>Set 4</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day3__romanian-deadlift-barbell-or-dumbbells__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: +5 lb next week</div>
       <div class="pattern">Pattern: hinge</div>
     </div>
 
-    <div class="exercise">
+    <div class="exercise" data-exercise="leg-press">
       <div class="ex-head">
-        <div class="ex-title"><strong>Adductor Machine</strong> <span class="badge">12-15 • Rest 60s</span></div>
+        <div class="ex-title">
+          <strong class="ex-name">Leg Press (high and wide foot placement)</strong> 
+          <span class="badge">8-10 • Rest 90-120s</span>
+        </div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Feb 8, 2026__day3__adductor-machine__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Feb 8, 2026__day3__leg-press-high-and-wide-foot-placement__equip" class="equip-select">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
 
       <div class="trackers">
-        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day3__adductor-machine__weight"></label>
-        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day3__adductor-machine__reps"></label>
-        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day3__adductor-machine__rpe"></label>
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day3__leg-press-high-and-wide-foot-placement__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day3__leg-press-high-and-wide-foot-placement__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day3__leg-press-high-and-wide-foot-placement__rpe"></label>
       </div>
 
-      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__adductor-machine__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__adductor-machine__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__adductor-machine__set_3"><span>Set 3</span></label></div>
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__leg-press-high-and-wide-foot-placement__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__leg-press-high-and-wide-foot-placement__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__leg-press-high-and-wide-foot-placement__set_3"><span>Set 3</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__leg-press-high-and-wide-foot-placement__set_4"><span>Set 4</span></label></div>
 
       <label class="notes">Notes
-        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day3__adductor-machine__notes"></textarea>
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day3__leg-press-high-and-wide-foot-placement__notes"></textarea>
       </label>
 
-      <div class="cue">Progression cue: beat last week's total reps</div>
-      <div class="pattern">Pattern: accessory</div>
+      <div class="cue">Progression cue: add 1 rep per set</div>
+      <div class="pattern">Pattern: push</div>
+      <div class="at-home-cue" style="display:none;">👉 <strong>Cue:</strong> Full foot pressure, controlled tempo.</div>
     </div>
 
     <div class="exercise">
       <div class="ex-head">
-        <div class="ex-title"><strong>Frog Pumps / Band Abductions</strong> <span class="badge">20-30 • Rest 45s</span></div>
+        <div class="ex-title"><strong>Walking Lunges (holding DBs)</strong> <span class="badge">10-12/side • Rest 60-90s</span></div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Feb 8, 2026__day3__frog-pumps-band-abductions__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Feb 8, 2026__day3__walking-lunges-holding-dbs__equip">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
 
       <div class="trackers">
-        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day3__frog-pumps-band-abductions__weight"></label>
-        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day3__frog-pumps-band-abductions__reps"></label>
-        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day3__frog-pumps-band-abductions__rpe"></label>
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day3__walking-lunges-holding-dbs__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day3__walking-lunges-holding-dbs__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day3__walking-lunges-holding-dbs__rpe"></label>
       </div>
 
-      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__frog-pumps-band-abductions__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__frog-pumps-band-abductions__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__frog-pumps-band-abductions__set_3"><span>Set 3</span></label></div>
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__walking-lunges-holding-dbs__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__walking-lunges-holding-dbs__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__walking-lunges-holding-dbs__set_3"><span>Set 3</span></label></div>
 
       <label class="notes">Notes
-        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day3__frog-pumps-band-abductions__notes"></textarea>
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day3__walking-lunges-holding-dbs__notes"></textarea>
       </label>
 
       <div class="cue">Progression cue: add 1 rep per set</div>
+      <div class="pattern">Pattern: lunge</div>
+    </div>
+
+    <div class="exercise">
+      <div class="ex-head">
+        <div class="ex-title"><strong>Lying Leg Curl</strong> <span class="badge">10-12 • Rest 60-90s</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="Feb 8, 2026__day3__lying-leg-curl__equip">
+            <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day3__lying-leg-curl__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day3__lying-leg-curl__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day3__lying-leg-curl__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__lying-leg-curl__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__lying-leg-curl__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__lying-leg-curl__set_3"><span>Set 3</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day3__lying-leg-curl__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: add 1 rep per set</div>
+      <div class="pattern">Pattern: hamstring</div>
+    </div>
+
+    <div class="exercise">
+      <div class="ex-head">
+        <div class="ex-title"><strong>Single-Leg Glute Bridge (Barbell or DB)</strong> <span class="badge">12-15/side • Rest 45s</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="Feb 8, 2026__day3__single-leg-glute-bridge-barbell-or-db__equip">
+            <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day3__single-leg-glute-bridge-barbell-or-db__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day3__single-leg-glute-bridge-barbell-or-db__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day3__single-leg-glute-bridge-barbell-or-db__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__single-leg-glute-bridge-barbell-or-db__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__single-leg-glute-bridge-barbell-or-db__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__single-leg-glute-bridge-barbell-or-db__set_3"><span>Set 3</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day3__single-leg-glute-bridge-barbell-or-db__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: beat last week's total reps</div>
       <div class="pattern">Pattern: glute</div>
     </div>
 
     <div class="exercise">
       <div class="ex-head">
-        <div class="ex-title"><strong>GHD Sit-Ups</strong> <span class="badge">10-15 • Rest 60s</span></div>
+        <div class="ex-title"><strong>Standing Calf Raise</strong> <span class="badge">12-15 • Rest 45s</span></div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Feb 8, 2026__day3__ghd-sit-ups__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Feb 8, 2026__day3__standing-calf-raise__equip">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
 
       <div class="trackers">
-        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day3__ghd-sit-ups__weight"></label>
-        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day3__ghd-sit-ups__reps"></label>
-        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day3__ghd-sit-ups__rpe"></label>
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day3__standing-calf-raise__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day3__standing-calf-raise__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day3__standing-calf-raise__rpe"></label>
       </div>
 
-      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__ghd-sit-ups__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__ghd-sit-ups__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__ghd-sit-ups__set_3"><span>Set 3</span></label></div>
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__standing-calf-raise__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__standing-calf-raise__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day3__standing-calf-raise__set_3"><span>Set 3</span></label></div>
 
       <label class="notes">Notes
-        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day3__ghd-sit-ups__notes"></textarea>
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day3__standing-calf-raise__notes"></textarea>
       </label>
 
-      <div class="cue">Progression cue: improve form</div>
-      <div class="pattern">Pattern: core</div>
+      <div class="cue">Progression cue: add 1 rep per set</div>
+      <div class="pattern">Pattern: calf</div>
     </div>
     </section>
 
+    
     <section class="workout">
-      <h2>Saturday: Upper Pull – Back & Biceps</h2>
+      <h2>Thursday: Upper B – Pull Focus</h2>
       
     <div class="exercise">
       <div class="ex-head">
-        <div class="ex-title"><strong>Pull-Ups</strong> <span class="badge">max reps • Rest 90-120s</span></div>
+        <div class="ex-title"><strong>Pull-ups or Lat Pulldown</strong> <span class="badge">6-8 • Rest 90-120s</span></div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Feb 8, 2026__day4__pull-ups__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Feb 8, 2026__day4__pull-ups-or-lat-pulldown__equip">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
 
       <div class="trackers">
-        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day4__pull-ups__weight"></label>
-        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day4__pull-ups__reps"></label>
-        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day4__pull-ups__rpe"></label>
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day4__pull-ups-or-lat-pulldown__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day4__pull-ups-or-lat-pulldown__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day4__pull-ups-or-lat-pulldown__rpe"></label>
       </div>
 
-      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__pull-ups__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__pull-ups__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__pull-ups__set_3"><span>Set 3</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__pull-ups__set_4"><span>Set 4</span></label></div>
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__pull-ups-or-lat-pulldown__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__pull-ups-or-lat-pulldown__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__pull-ups-or-lat-pulldown__set_3"><span>Set 3</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__pull-ups-or-lat-pulldown__set_4"><span>Set 4</span></label></div>
 
       <label class="notes">Notes
-        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day4__pull-ups__notes"></textarea>
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day4__pull-ups-or-lat-pulldown__notes"></textarea>
       </label>
 
-      <div class="cue">Progression cue: add 1 rep</div>
+      <div class="cue">Progression cue: add 1 rep per set</div>
       <div class="pattern">Pattern: pull</div>
     </div>
 
-    <div class="exercise">
+    <div class="exercise" data-exercise="lat-pulldown">
       <div class="ex-head">
-        <div class="ex-title"><strong>Barbell / Dumbbell Row</strong> <span class="badge">6-8 • Rest 90s</span></div>
+        <div class="ex-title">
+          <strong class="ex-name">Lat Pulldown (Wide Grip)</strong> 
+          <span class="badge">8-10 • Rest 90s</span>
+        </div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Feb 8, 2026__day4__barbell-dumbbell-row__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Feb 8, 2026__day4__lat-pulldown-wide-grip__equip" class="equip-select">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
 
       <div class="trackers">
-        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day4__barbell-dumbbell-row__weight"></label>
-        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day4__barbell-dumbbell-row__reps"></label>
-        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day4__barbell-dumbbell-row__rpe"></label>
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day4__lat-pulldown-wide-grip__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day4__lat-pulldown-wide-grip__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day4__lat-pulldown-wide-grip__rpe"></label>
       </div>
 
-      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__barbell-dumbbell-row__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__barbell-dumbbell-row__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__barbell-dumbbell-row__set_3"><span>Set 3</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__barbell-dumbbell-row__set_4"><span>Set 4</span></label></div>
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__lat-pulldown-wide-grip__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__lat-pulldown-wide-grip__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__lat-pulldown-wide-grip__set_3"><span>Set 3</span></label></div>
 
       <label class="notes">Notes
-        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day4__barbell-dumbbell-row__notes"></textarea>
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day4__lat-pulldown-wide-grip__notes"></textarea>
       </label>
 
-      <div class="cue">Progression cue: +5 lb next week</div>
-      <div class="pattern">Pattern: row</div>
+      <div class="cue">Progression cue: add 1 rep per set</div>
+      <div class="pattern">Pattern: pull</div>
+      <div class="at-home-cue" style="display:none;">👉 <strong>Cue:</strong> Pull elbows down and in, not straight back.</div>
     </div>
 
     <div class="exercise">
       <div class="ex-head">
-        <div class="ex-title"><strong>Lat Pulldown</strong> <span class="badge">10-12 • Rest 60-90s</span></div>
+        <div class="ex-title"><strong>Barbell or Dumbbell Row</strong> <span class="badge">8-10 • Rest 90s</span></div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Feb 8, 2026__day4__lat-pulldown__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Feb 8, 2026__day4__barbell-or-dumbbell-row__equip">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
 
       <div class="trackers">
-        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day4__lat-pulldown__weight"></label>
-        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day4__lat-pulldown__reps"></label>
-        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day4__lat-pulldown__rpe"></label>
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day4__barbell-or-dumbbell-row__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day4__barbell-or-dumbbell-row__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day4__barbell-or-dumbbell-row__rpe"></label>
       </div>
 
-      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__lat-pulldown__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__lat-pulldown__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__lat-pulldown__set_3"><span>Set 3</span></label></div>
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__barbell-or-dumbbell-row__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__barbell-or-dumbbell-row__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__barbell-or-dumbbell-row__set_3"><span>Set 3</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__barbell-or-dumbbell-row__set_4"><span>Set 4</span></label></div>
 
       <label class="notes">Notes
-        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day4__lat-pulldown__notes"></textarea>
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day4__barbell-or-dumbbell-row__notes"></textarea>
       </label>
 
       <div class="cue">Progression cue: add 1 rep per set</div>
@@ -623,12 +711,43 @@
 
     <div class="exercise">
       <div class="ex-head">
-        <div class="ex-title"><strong>Face Pulls</strong> <span class="badge">15-20 • Rest 45-60s</span></div>
+        <div class="ex-title"><strong>Cable or Dumbbell Row (Single Arm)</strong> <span class="badge">10-12/side • Rest 60-90s</span></div>
         <div class="equip">
           <label>Equipment</label>
-          <select data-key="Feb 8, 2026__day4__face-pulls__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
+          <select data-key="Feb 8, 2026__day4__cable-or-dumbbell-row-single-arm__equip">
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="Feb 8, 2026__day4__cable-or-dumbbell-row-single-arm__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="Feb 8, 2026__day4__cable-or-dumbbell-row-single-arm__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="Feb 8, 2026__day4__cable-or-dumbbell-row-single-arm__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__cable-or-dumbbell-row-single-arm__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__cable-or-dumbbell-row-single-arm__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="Feb 8, 2026__day4__cable-or-dumbbell-row-single-arm__set_3"><span>Set 3</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day4__cable-or-dumbbell-row-single-arm__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: add 1 rep per set</div>
+      <div class="pattern">Pattern: pull</div>
+    </div>
+
+    <div class="exercise" data-exercise="face-pulls">
+      <div class="ex-head">
+        <div class="ex-title">
+          <strong class="ex-name">Face Pulls</strong> 
+          <span class="badge">15-20 • Rest 45-60s</span>
+        </div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="Feb 8, 2026__day4__face-pulls__equip" class="equip-select">
+            <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -645,8 +764,9 @@
         <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day4__face-pulls__notes"></textarea>
       </label>
 
-      <div class="cue">Progression cue: improve control on eccentric</div>
+      <div class="cue">Progression cue: beat last week's total reps</div>
       <div class="pattern">Pattern: rear delt</div>
+      <div class="at-home-cue" style="display:none;">👉 <strong>Cue:</strong> Elbows high, squeeze shoulder blades.</div>
     </div>
 
     <div class="exercise">
@@ -655,8 +775,8 @@
         <div class="equip">
           <label>Equipment</label>
           <select data-key="Feb 8, 2026__day4__bicep-curl-barbell-or-dumbbell__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -673,7 +793,7 @@
         <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day4__bicep-curl-barbell-or-dumbbell__notes"></textarea>
       </label>
 
-      <div class="cue">Progression cue: +5 lb next week</div>
+      <div class="cue">Progression cue: add 1 rep per set</div>
       <div class="pattern">Pattern: curl</div>
     </div>
 
@@ -683,8 +803,8 @@
         <div class="equip">
           <label>Equipment</label>
           <select data-key="Feb 8, 2026__day4__hammer-cable-curl__equip">
-            <option value="home">At home: Dumbbell/Bands</option>
             <option value="gym">At gym: Barbell/Machines</option>
+            <option value="home">At home: Dumbbell/Bands</option>
           </select>
         </div>
       </div>
@@ -701,7 +821,7 @@
         <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="Feb 8, 2026__day4__hammer-cable-curl__notes"></textarea>
       </label>
 
-      <div class="cue">Progression cue: add 1 rep per set</div>
+      <div class="cue">Progression cue: improve form</div>
       <div class="pattern">Pattern: curl</div>
     </div>
     </section>
@@ -729,8 +849,83 @@
   </div>
 
   <script>
+    // Exercise swap definitions
+    const exerciseSwaps = {
+      'hack-squat': {
+        gym: 'Hack Squat (wide stance)',
+        home: 'Heels-Elevated Goblet Squat',
+        cue: 'Keep torso upright and drive knees forward.'
+      },
+      'seated-leg-curl': {
+        gym: 'Seated Leg Curl',
+        home: 'Slider Hamstring Curls',
+        cue: 'Slow on the way out, squeeze at the top.'
+      },
+      'cable-kickbacks': {
+        gym: 'Cable Kickbacks',
+        home: 'DB Single-Leg Glute Bridge',
+        cue: 'Small range, glute squeeze, no low-back arching.'
+      },
+      'ghd-sit-ups': {
+        gym: 'GHD Sit-Ups',
+        home: 'Dead Bugs or Hollow Body Holds',
+        cue: 'Control the descent, don\'t yank with momentum.'
+      },
+      'lat-pulldown': {
+        gym: 'Lat Pulldown (Wide Grip)',
+        home: 'Dumbbell Pullovers',
+        cue: 'Pull elbows down and in, not straight back.'
+      },
+      'face-pulls': {
+        gym: 'Face Pulls',
+        home: 'Prone Y-Raises',
+        cue: 'Elbows high, squeeze shoulder blades.'
+      },
+      'leg-press': {
+        gym: 'Leg Press (high and wide foot placement)',
+        home: 'DB Step-Ups',
+        cue: 'Full foot pressure, controlled tempo.'
+      },
+      'adductor-machine': {
+        gym: 'Adductor Machine',
+        home: 'DB Sumo Squats',
+        cue: 'Slow squeeze, stay tall through the torso.'
+      }
+    };
+
+    // Handle equipment dropdown changes
+    const handleEquipmentChange = (e) => {
+      const select = e.target;
+      if (!select.classList.contains('equip-select')) return;
+      
+      const exerciseDiv = select.closest('[data-exercise]');
+      if (!exerciseDiv) return;
+      
+      const exerciseKey = exerciseDiv.getAttribute('data-exercise');
+      const swap = exerciseSwaps[exerciseKey];
+      if (!swap) return;
+      
+      const mode = select.value;
+      const titleElement = exerciseDiv.querySelector('.ex-name');
+      const cueElement = exerciseDiv.querySelector('.at-home-cue');
+      
+      if (mode === 'home') {
+        titleElement.textContent = swap.home;
+        if (cueElement) {
+          cueElement.innerHTML = `👉 <strong>Cue:</strong> ${swap.cue}`;
+          cueElement.style.display = 'block';
+        }
+      } else {
+        titleElement.textContent = swap.gym;
+        if (cueElement) {
+          cueElement.style.display = 'none';
+        }
+      }
+    };
+
+    // Restore all saved data from localStorage
     const restore = () => {
-      document.querySelectorAll('[data-key]').forEach(el=>{
+      document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.getAttribute('data-key');
         if (el.type === 'checkbox') {
           el.checked = localStorage.getItem(key) === '1';
@@ -739,14 +934,28 @@
           if (v !== null) el.value = v;
         }
       });
+      
+      // Restore exercise swaps based on equipment selection
+      document.querySelectorAll('[data-exercise]').forEach(exerciseDiv => {
+        const select = exerciseDiv.querySelector('.equip-select');
+        if (select) {
+          handleEquipmentChange({ target: select });
+        }
+      });
     };
+
+    // Persist data to localStorage
     const persist = (e) => {
       const el = e.target;
       if (!el || !el.hasAttribute('data-key')) return;
       const key = el.getAttribute('data-key');
       const val = (el.type === 'checkbox') ? (el.checked ? '1':'0') : el.value;
       localStorage.setItem(key, val);
+      
+      // Handle equipment changes
+      handleEquipmentChange(e);
     };
+
     window.addEventListener('change', persist, true);
     window.addEventListener('DOMContentLoaded', restore);
   </script>
