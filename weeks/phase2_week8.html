@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phase 2 — Week 8 | RSW Workouts</title>
+  <style>
+
+  :root{ --olive:#6C7653; --cream:#F1F0EC; --gold:#C28511; --ink:#1b1b1b; --mid:#6b7280; }
+  *{box-sizing:border-box}
+  body{margin:0; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial; color:var(--ink); background:var(--cream)}
+  .wrap{max-width:960px; margin:0 auto; padding:24px 16px}
+  header{background:linear-gradient(180deg,var(--olive),#536043); color:white; padding:24px; border-radius:16px}
+  header h1{margin:0 0 6px 0; font-size:1.5rem; letter-spacing:0.2px}
+  .meta{opacity:.95; font-size:.95rem}
+  .goal{margin-top:12px; background:white; color:var(--ink); border-left:6px solid var(--gold); padding:12px 14px; border-radius:12px}
+  .intro{margin:16px 0 0 0; font-size:1rem}
+  h2{font-size:1.1rem; margin:18px 0 8px}
+  .workout,.mini,.walk,.footer{background:white; border-radius:16px; padding:16px; margin:16px 0; box-shadow:0 1px 0 rgba(0,0,0,.03)}
+  .exercise{border:1px solid #e5e7eb; border-radius:12px; padding:12px; margin:12px 0; background:#fafafa}
+  .ex-head{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:flex-start}
+  .ex-title{font-size:1rem; display:flex; align-items:center; flex-wrap:wrap; gap:4px; flex:1; min-width:0}
+  .badge{background:var(--cream); color:#333; padding:2px 8px; border-radius:999px; font-size:.8rem; margin-left:4px; white-space:nowrap}
+  .equip{flex-shrink:0}
+  .equip label{font-size:.8rem; color:#374151; display:block; margin-bottom:4px}
+  .equip select{padding:8px; border-radius:10px; border:1px solid #d1d5db; background:white}
+  .trackers{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:10px 0}
+  .trackers label{display:flex; flex-direction:column; font-size:.85rem; gap:6px}
+  .trackers input{padding:10px; border-radius:10px; border:1px solid #d1d5db; background:white}
+  .sets{display:flex; flex-wrap:wrap; gap:10px; margin:6px 0 10px}
+  .setbox{display:flex; align-items:center; gap:6px; font-size:.9rem; background:#fff; border:1px dashed #e5e7eb; border-radius:999px; padding:6px 10px}
+  .notes{display:flex; flex-direction:column; gap:6px; font-size:.85rem}
+  textarea{border:1px solid #d1d5db; border-radius:10px; padding:10px; background:white; width:100%}
+  .cue,.pattern{font-size:.85rem; color:#374151; margin-top:6px}
+  .mini ul{margin:8px 0 0 18px}
+  .footer a{color:var(--olive); text-decoration:underline}
+  .liblinks a{margin-right:12px}
+  /* Week selector */
+  .week-selector{display:flex; flex-wrap:wrap; gap:8px; margin:20px 0 8px}
+  .week-pill{padding:9px 20px; border-radius:999px; border:none; cursor:pointer; font-size:.9rem; font-weight:500; background:var(--cream); color:var(--ink); transition:background .15s,color .15s; line-height:1}
+  .week-pill.active{background:var(--olive); color:#fff}
+  .week-pill:hover:not(.active){background:#dddcd7}
+  /* Superset */
+  .superset-pill{display:inline-block; background:var(--gold); color:#fff; font-size:.68rem; font-weight:700; padding:2px 7px; border-radius:999px; letter-spacing:.4px; white-space:nowrap; flex-shrink:0}
+  @media(max-width:640px){.trackers{grid-template-columns:1fr}}
+
+  /* Day selector */
+  .day-selector{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 16px}
+  /* Completion strip */
+  .completion-strip{background:white; border:1px solid #e5e7eb; border-radius:12px; padding:12px 16px; margin-bottom:12px; transition:background .2s}
+  .completion-strip.done{background:#f0faf0; border-left:4px solid #4caf50}
+  .completion-main{display:flex; align-items:center; flex-wrap:wrap; gap:16px}
+  .completion-label{display:flex; align-items:center; gap:10px; cursor:pointer; font-size:.9rem; font-weight:500; user-select:none}
+  .completion-cb{position:absolute; opacity:0; width:1px; height:1px; overflow:hidden}
+  .completion-box{width:24px; height:24px; border:2px solid #d1d5db; border-radius:6px; display:inline-flex; align-items:center; justify-content:center; background:white; flex-shrink:0; transition:background .15s,border-color .15s; font-size:13px; font-weight:700; color:white}
+  .completion-cb:checked+.completion-box{background:var(--olive); border-color:var(--olive)}
+  .completion-cb:checked+.completion-box::after{content:'✓'}
+  .completion-cb:focus+.completion-box{outline:2px solid var(--olive); outline-offset:2px}
+  .completion-date-label{display:flex; align-items:center; gap:8px; font-size:.85rem; color:#374151}
+  .completion-date{padding:8px 10px; border-radius:10px; border:1px solid #d1d5db; background:white; font-size:.85rem}
+  .completion-hint{font-size:.78rem; color:#9ca3af; margin:8px 0 0; padding:0}
+  @media(max-width:640px){.completion-main{flex-direction:column; align-items:flex-start}}
+  @media(max-width:640px){.ex-head{flex-direction:column} .equip{margin-top:8px} .equip select{width:100%}}
+
+    /* Lock screen */
+    #lock-screen{position:fixed;inset:0;background:var(--cream);display:flex;align-items:center;justify-content:center;z-index:1000;padding:24px}
+    .lock-box{background:white;border-radius:20px;padding:40px 32px;max-width:400px;width:100%;text-align:center;box-shadow:0 4px 24px rgba(0,0,0,.08)}
+    .lock-box h2{color:var(--olive);margin:0 0 8px;font-size:1.4rem}
+    .lock-box>p{color:var(--mid);margin:0 0 24px;font-size:.95rem}
+    #access-input{width:100%;padding:12px 16px;border-radius:10px;border:1px solid #d1d5db;font-size:1rem;text-align:center;letter-spacing:.1em;margin-bottom:12px;box-sizing:border-box}
+    #access-input:focus{outline:2px solid var(--olive);border-color:var(--olive)}
+    #unlock-btn{width:100%;padding:12px;border-radius:10px;border:none;background:var(--olive);color:white;font-size:1rem;font-weight:600;cursor:pointer}
+    #unlock-btn:hover{background:#536043}
+    #lock-error{color:#dc2626;font-size:.85rem;margin:10px 0 0;display:none}
+  </style>
+</head>
+<body>
+
+<!-- Lock screen (visible by default) -->
+<div id="lock-screen">
+  <div class="lock-box">
+    <h2>Rachel Stephens Wellness</h2>
+    <p>Enter your access code to continue</p>
+    <input type="text" id="access-input" placeholder="Access code"
+           autocomplete="off" autocapitalize="characters" spellcheck="false">
+    <button id="unlock-btn" onclick="tryUnlock()">Unlock</button>
+    <p id="lock-error">Incorrect code. Check your email or DM us @rachelstephenswellness on Instagram</p>
+  </div>
+</div>
+
+<!-- Main content (hidden until unlocked) -->
+<div id="main-content" style="display:none">
+  <div class="wrap">
+    <header>
+      <h1>RSW Phase 2 — Build &amp; Burn</h1>
+      <div class="meta"><strong>Phase:</strong> Build &amp; Burn — 6-week hypertrophy &amp; metabolic conditioning &bull; Week 8</div>
+      <div class="goal"><strong>Goal of week 8:</strong> Add one set to each compound movement this week. You're moving from 3 sets to 4 sets on your big lifts. Keep the weight the same as Week 7 — this is a volume week, not a load week. Your muscles need to adapt to more total work before they can handle more weight.</div>
+      <p class="intro">Week 8 is where consistency starts to pay off. You might not see it in the mirror yet, but your muscles are changing at the cellular level. Stay the course. Three sessions, full effort, quality over quantity.</p>
+    </header>
+
+    <div class="day-selector">
+      <button class="week-pill day-pill active" data-day-btn="1" onclick="showDay(1)">Day 1 — Monday</button>
+      <button class="week-pill day-pill" data-day-btn="2" onclick="showDay(2)">Day 2 — Wednesday</button>
+      <button class="week-pill day-pill" data-day-btn="3" onclick="showDay(3)">Day 3 — Friday</button>
+    </div>
+
+    <section class="workout" data-day="1">
+      <h2>Monday: Lower A – Glute &amp; Quad Focus</h2>
+    <div class="completion-strip">
+      <div class="completion-main">
+        <label class="completion-label">
+          <input type="checkbox" class="completion-cb" data-key="week8__day1__completed">
+          <span class="completion-box"></span>
+          <span class="completion-text">Mark as Complete</span>
+        </label>
+        <label class="completion-date-label">Date completed:
+          <input type="date" class="completion-date" data-key="week8__day1__completed_date">
+        </label>
+      </div>
+      <p class="completion-hint">Your progress is saved on this device</p>
+    </div>
+      
+    <div class="exercise">
+      <div class="ex-head">
+        <div class="ex-title"><strong data-gym-name="Barbell Hip Thrust" data-home-name="Dumbbell Hip Thrust (dumbbell placed across hips, upper back on bench or couch edge)">Barbell Hip Thrust</strong> <span class="badge">4 sets • 12-15 reps • 60 sec rest • Tempo: 2-0-1</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="week8__monday__barbell-hip-thrust__equip">
+            <option value="home">At home: Dumbbell/Bands</option>
+            <option value="gym">At gym: Barbell/Machines</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="week8__monday__barbell-hip-thrust__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="week8__monday__barbell-hip-thrust__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="week8__monday__barbell-hip-thrust__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="week8__monday__barbell-hip-thrust__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="week8__monday__barbell-hip-thrust__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="week8__monday__barbell-hip-thrust__set_3"><span>Set 3</span></label><label class="setbox"><input type="checkbox" data-key="week8__monday__barbell-hip-thrust__set_4"><span>Set 4</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="week8__monday__barbell-hip-thrust__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: Add 5 lbs from last week if you hit all sets at 15 reps.</div>
+      <div class="pattern">Pattern: glute</div>
+    </div>
+    <div class="exercise">
+      <div class="ex-head">
+        <div class="ex-title"><strong>Goblet Squat (heels elevated on plate)</strong> <span class="badge">4 sets • 12-15 reps • 60 sec rest • Tempo: 3-1-1</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="week8__monday__goblet-squat-heels-elevated-on-plate__equip">
+            <option value="home">At home: Dumbbell/Bands</option>
+            <option value="gym">At gym: Barbell/Machines</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="week8__monday__goblet-squat-heels-elevated-on-plate__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="week8__monday__goblet-squat-heels-elevated-on-plate__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="week8__monday__goblet-squat-heels-elevated-on-plate__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="week8__monday__goblet-squat-heels-elevated-on-plate__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="week8__monday__goblet-squat-heels-elevated-on-plate__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="week8__monday__goblet-squat-heels-elevated-on-plate__set_3"><span>Set 3</span></label><label class="setbox"><input type="checkbox" data-key="week8__monday__goblet-squat-heels-elevated-on-plate__set_4"><span>Set 4</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="week8__monday__goblet-squat-heels-elevated-on-plate__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: Add 5 lbs if last week's reps were clean. If not, repeat same weight with 4 sets.</div>
+      <div class="pattern">Pattern: squat</div>
+    </div>
+    <div class="exercise">
+      <div class="ex-head">
+        <div class="ex-title"><strong>Reverse Lunge (dumbbell)</strong> <span class="badge">3 sets • 10 each leg reps • 60 sec rest • Tempo: 2-0-1</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="week8__monday__reverse-lunge-dumbbell__equip">
+            <option value="home">At home: Dumbbell/Bands</option>
+            <option value="gym">At gym: Barbell/Machines</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="week8__monday__reverse-lunge-dumbbell__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="week8__monday__reverse-lunge-dumbbell__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="week8__monday__reverse-lunge-dumbbell__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="week8__monday__reverse-lunge-dumbbell__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="week8__monday__reverse-lunge-dumbbell__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="week8__monday__reverse-lunge-dumbbell__set_3"><span>Set 3</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="week8__monday__reverse-lunge-dumbbell__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: Increase weight by 5 lbs if all reps were controlled with an upright torso.</div>
+      <div class="pattern">Pattern: squat|glute</div>
+    </div>
+    <div class="exercise">
+      <div class="ex-head">
+        <div class="ex-title"><strong data-gym-name="Leg Press (feet high and wide)" data-home-name="Sumo Squat with Dumbbell (wide stance, toes out, dumbbell held at chest)">Leg Press (feet high and wide)</strong> <span class="badge">3 sets • 15 reps • 60 sec rest • Tempo: 3-0-1</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="week8__monday__leg-press-feet-high-and-wide__equip">
+            <option value="home">At home: Dumbbell/Bands</option>
+            <option value="gym">At gym: Barbell/Machines</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="week8__monday__leg-press-feet-high-and-wide__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="week8__monday__leg-press-feet-high-and-wide__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="week8__monday__leg-press-feet-high-and-wide__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="week8__monday__leg-press-feet-high-and-wide__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="week8__monday__leg-press-feet-high-and-wide__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="week8__monday__leg-press-feet-high-and-wide__set_3"><span>Set 3</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="week8__monday__leg-press-feet-high-and-wide__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: Add one plate per side when form is solid.</div>
+      <div class="pattern">Pattern: squat|glute</div>
+    </div>
+    <div class="exercise">
+      <div class="ex-head">
+        <div class="ex-title"><strong>Banded Glute Kickback (cable or band)</strong> <span class="badge">3 sets • 15 each leg reps • 45 sec rest • Tempo: 1-1-1</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="week8__monday__banded-glute-kickback-cable-or-band__equip">
+            <option value="home">At home: Dumbbell/Bands</option>
+            <option value="gym">At gym: Barbell/Machines</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="week8__monday__banded-glute-kickback-cable-or-band__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="week8__monday__banded-glute-kickback-cable-or-band__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="week8__monday__banded-glute-kickback-cable-or-band__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="week8__monday__banded-glute-kickback-cable-or-band__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="week8__monday__banded-glute-kickback-cable-or-band__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="week8__monday__banded-glute-kickback-cable-or-band__set_3"><span>Set 3</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="week8__monday__banded-glute-kickback-cable-or-band__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: Increase cable by 2.5 lbs or upgrade band resistance.</div>
+      <div class="pattern">Pattern: glute</div>
+    </div>
+    <div class="exercise">
+      <div class="ex-head">
+        <div class="ex-title"><strong>Plank with Alternating Hip Tap</strong> <span class="badge">3 sets • 10 each side reps • 45 sec rest • Tempo: controlled</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="week8__monday__plank-with-alternating-hip-tap__equip">
+            <option value="home">At home: Dumbbell/Bands</option>
+            <option value="gym">At gym: Barbell/Machines</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="week8__monday__plank-with-alternating-hip-tap__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="week8__monday__plank-with-alternating-hip-tap__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="week8__monday__plank-with-alternating-hip-tap__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="week8__monday__plank-with-alternating-hip-tap__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="week8__monday__plank-with-alternating-hip-tap__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="week8__monday__plank-with-alternating-hip-tap__set_3"><span>Set 3</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="week8__monday__plank-with-alternating-hip-tap__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: Move to alternating leg lift if hip taps feel easy.</div>
+      <div class="pattern">Pattern: core</div>
+    </div>
+    </section>
+    <section class="workout" data-day="2">
+      <h2>Wednesday: Upper Body – Push/Pull Supersets</h2>
+    <div class="completion-strip">
+      <div class="completion-main">
+        <label class="completion-label">
+          <input type="checkbox" class="completion-cb" data-key="week8__day2__completed">
+          <span class="completion-box"></span>
+          <span class="completion-text">Mark as Complete</span>
+        </label>
+        <label class="completion-date-label">Date completed:
+          <input type="date" class="completion-date" data-key="week8__day2__completed_date">
+        </label>
+      </div>
+      <p class="completion-hint">Your progress is saved on this device</p>
+    </div>
+      
+    <div class="exercise" style="border-left:4px solid var(--gold);padding-left:14px;">
+      <div class="ex-head">
+        <div class="ex-title"><span class="superset-pill">SUPERSET</span><strong data-gym-name="SUPERSET A1: Lat Pulldown (wide grip)" data-home-name="SUPERSET A1: Resistance Band Lat Pulldown (band looped over door, kneel and pull down)">SUPERSET A1: Lat Pulldown (wide grip)</strong> <span class="badge">4 sets • 12 reps • 0 sec (go to A2) rest • Tempo: 2-1-2</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="week8__wednesday__superset-a1-lat-pulldown-wide-grip__equip">
+            <option value="home">At home: Dumbbell/Bands</option>
+            <option value="gym">At gym: Barbell/Machines</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="week8__wednesday__superset-a1-lat-pulldown-wide-grip__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="week8__wednesday__superset-a1-lat-pulldown-wide-grip__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="week8__wednesday__superset-a1-lat-pulldown-wide-grip__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="week8__wednesday__superset-a1-lat-pulldown-wide-grip__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="week8__wednesday__superset-a1-lat-pulldown-wide-grip__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="week8__wednesday__superset-a1-lat-pulldown-wide-grip__set_3"><span>Set 3</span></label><label class="setbox"><input type="checkbox" data-key="week8__wednesday__superset-a1-lat-pulldown-wide-grip__set_4"><span>Set 4</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="week8__wednesday__superset-a1-lat-pulldown-wide-grip__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: Increase weight by 5 lbs if last week's form was clean.</div>
+      <div class="pattern">Pattern: pull</div>
+    </div>
+    <div class="exercise" style="border-left:4px solid var(--gold);padding-left:14px;">
+      <div class="ex-head">
+        <div class="ex-title"><span class="superset-pill">SUPERSET</span><strong>SUPERSET A2: Dumbbell Chest Press (incline)</strong> <span class="badge">4 sets • 12 reps • 60 sec after A2 rest • Tempo: 3-0-1</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="week8__wednesday__superset-a2-dumbbell-chest-press-incline__equip">
+            <option value="home">At home: Dumbbell/Bands</option>
+            <option value="gym">At gym: Barbell/Machines</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="week8__wednesday__superset-a2-dumbbell-chest-press-incline__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="week8__wednesday__superset-a2-dumbbell-chest-press-incline__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="week8__wednesday__superset-a2-dumbbell-chest-press-incline__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="week8__wednesday__superset-a2-dumbbell-chest-press-incline__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="week8__wednesday__superset-a2-dumbbell-chest-press-incline__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="week8__wednesday__superset-a2-dumbbell-chest-press-incline__set_3"><span>Set 3</span></label><label class="setbox"><input type="checkbox" data-key="week8__wednesday__superset-a2-dumbbell-chest-press-incline__set_4"><span>Set 4</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="week8__wednesday__superset-a2-dumbbell-chest-press-incline__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: Increase by 5 lbs if all 4 sets are completed with full range.</div>
+      <div class="pattern">Pattern: push</div>
+    </div>
+    <div class="exercise" style="border-left:4px solid var(--gold);padding-left:14px;">
+      <div class="ex-head">
+        <div class="ex-title"><span class="superset-pill">SUPERSET</span><strong data-gym-name="SUPERSET B1: Seated Cable Row (close grip)" data-home-name="SUPERSET B1: Resistance Band Row (band anchored to door at waist height, seated or standing hinge)">SUPERSET B1: Seated Cable Row (close grip)</strong> <span class="badge">4 sets • 12 reps • 0 sec (go to B2) rest • Tempo: 2-1-2</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="week8__wednesday__superset-b1-seated-cable-row-close-grip__equip">
+            <option value="home">At home: Dumbbell/Bands</option>
+            <option value="gym">At gym: Barbell/Machines</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="week8__wednesday__superset-b1-seated-cable-row-close-grip__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="week8__wednesday__superset-b1-seated-cable-row-close-grip__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="week8__wednesday__superset-b1-seated-cable-row-close-grip__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="week8__wednesday__superset-b1-seated-cable-row-close-grip__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="week8__wednesday__superset-b1-seated-cable-row-close-grip__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="week8__wednesday__superset-b1-seated-cable-row-close-grip__set_3"><span>Set 3</span></label><label class="setbox"><input type="checkbox" data-key="week8__wednesday__superset-b1-seated-cable-row-close-grip__set_4"><span>Set 4</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="week8__wednesday__superset-b1-seated-cable-row-close-grip__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: Add weight when shoulders stay packed for all reps.</div>
+      <div class="pattern">Pattern: row</div>
+    </div>
+    <div class="exercise" style="border-left:4px solid var(--gold);padding-left:14px;">
+      <div class="ex-head">
+        <div class="ex-title"><span class="superset-pill">SUPERSET</span><strong>SUPERSET B2: Dumbbell Lateral Raise</strong> <span class="badge">3 sets • 12-15 reps • 60 sec after B2 rest • Tempo: 2-0-2</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="week8__wednesday__superset-b2-dumbbell-lateral-raise__equip">
+            <option value="home">At home: Dumbbell/Bands</option>
+            <option value="gym">At gym: Barbell/Machines</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="week8__wednesday__superset-b2-dumbbell-lateral-raise__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="week8__wednesday__superset-b2-dumbbell-lateral-raise__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="week8__wednesday__superset-b2-dumbbell-lateral-raise__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="week8__wednesday__superset-b2-dumbbell-lateral-raise__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="week8__wednesday__superset-b2-dumbbell-lateral-raise__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="week8__wednesday__superset-b2-dumbbell-lateral-raise__set_3"><span>Set 3</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="week8__wednesday__superset-b2-dumbbell-lateral-raise__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: Increase by 2.5 lbs when hitting 15 clean reps.</div>
+      <div class="pattern">Pattern: push</div>
+    </div>
+    <div class="exercise">
+      <div class="ex-head">
+        <div class="ex-title"><strong data-gym-name="Face Pull (cable, rope attachment)" data-home-name="Band Face Pull (resistance band anchored at head height, pull toward face with external rotation)">Face Pull (cable, rope attachment)</strong> <span class="badge">3 sets • 15 reps • 45 sec rest • Tempo: 2-1-2</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="week8__wednesday__face-pull-cable-rope-attachment__equip">
+            <option value="home">At home: Dumbbell/Bands</option>
+            <option value="gym">At gym: Barbell/Machines</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="week8__wednesday__face-pull-cable-rope-attachment__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="week8__wednesday__face-pull-cable-rope-attachment__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="week8__wednesday__face-pull-cable-rope-attachment__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="week8__wednesday__face-pull-cable-rope-attachment__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="week8__wednesday__face-pull-cable-rope-attachment__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="week8__wednesday__face-pull-cable-rope-attachment__set_3"><span>Set 3</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="week8__wednesday__face-pull-cable-rope-attachment__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: Never sacrifice form for load on this one. Increase only when full external rotation is present.</div>
+      <div class="pattern">Pattern: pull</div>
+    </div>
+    <div class="exercise" style="border-left:4px solid var(--gold);padding-left:14px;">
+      <div class="ex-head">
+        <div class="ex-title"><span class="superset-pill">SUPERSET</span><strong>SUPERSET C1: Dumbbell Bicep Curl</strong> <span class="badge">3 sets • 12 reps • 0 sec (go to C2) rest • Tempo: 2-0-2</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="week8__wednesday__superset-c1-dumbbell-bicep-curl__equip">
+            <option value="home">At home: Dumbbell/Bands</option>
+            <option value="gym">At gym: Barbell/Machines</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="week8__wednesday__superset-c1-dumbbell-bicep-curl__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="week8__wednesday__superset-c1-dumbbell-bicep-curl__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="week8__wednesday__superset-c1-dumbbell-bicep-curl__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="week8__wednesday__superset-c1-dumbbell-bicep-curl__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="week8__wednesday__superset-c1-dumbbell-bicep-curl__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="week8__wednesday__superset-c1-dumbbell-bicep-curl__set_3"><span>Set 3</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="week8__wednesday__superset-c1-dumbbell-bicep-curl__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: Increase by 2.5 lbs when all reps are clean.</div>
+      <div class="pattern">Pattern: curl</div>
+    </div>
+    <div class="exercise" style="border-left:4px solid var(--gold);padding-left:14px;">
+      <div class="ex-head">
+        <div class="ex-title"><span class="superset-pill">SUPERSET</span><strong data-gym-name="SUPERSET C2: Tricep Rope Pushdown" data-home-name="SUPERSET C2: Dumbbell Tricep Extension (single dumbbell held at one end, lower behind head)">SUPERSET C2: Tricep Rope Pushdown</strong> <span class="badge">3 sets • 12-15 reps • 60 sec after C2 rest • Tempo: 2-0-2</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="week8__wednesday__superset-c2-tricep-rope-pushdown__equip">
+            <option value="home">At home: Dumbbell/Bands</option>
+            <option value="gym">At gym: Barbell/Machines</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="week8__wednesday__superset-c2-tricep-rope-pushdown__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="week8__wednesday__superset-c2-tricep-rope-pushdown__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="week8__wednesday__superset-c2-tricep-rope-pushdown__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="week8__wednesday__superset-c2-tricep-rope-pushdown__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="week8__wednesday__superset-c2-tricep-rope-pushdown__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="week8__wednesday__superset-c2-tricep-rope-pushdown__set_3"><span>Set 3</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="week8__wednesday__superset-c2-tricep-rope-pushdown__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: Increase when hitting 15 reps with full extension.</div>
+      <div class="pattern">Pattern: push</div>
+    </div>
+    </section>
+    <section class="workout" data-day="3">
+      <h2>Friday: Lower B – Glute &amp; Posterior Chain</h2>
+    <div class="completion-strip">
+      <div class="completion-main">
+        <label class="completion-label">
+          <input type="checkbox" class="completion-cb" data-key="week8__day3__completed">
+          <span class="completion-box"></span>
+          <span class="completion-text">Mark as Complete</span>
+        </label>
+        <label class="completion-date-label">Date completed:
+          <input type="date" class="completion-date" data-key="week8__day3__completed_date">
+        </label>
+      </div>
+      <p class="completion-hint">Your progress is saved on this device</p>
+    </div>
+      
+    <div class="exercise">
+      <div class="ex-head">
+        <div class="ex-title"><strong>Romanian Deadlift (barbell or dumbbells)</strong> <span class="badge">4 sets • 12 reps • 60 sec rest • Tempo: 3-1-1</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="week8__friday__romanian-deadlift-barbell-or-dumbbells__equip">
+            <option value="home">At home: Dumbbell/Bands</option>
+            <option value="gym">At gym: Barbell/Machines</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="week8__friday__romanian-deadlift-barbell-or-dumbbells__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="week8__friday__romanian-deadlift-barbell-or-dumbbells__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="week8__friday__romanian-deadlift-barbell-or-dumbbells__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="week8__friday__romanian-deadlift-barbell-or-dumbbells__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="week8__friday__romanian-deadlift-barbell-or-dumbbells__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="week8__friday__romanian-deadlift-barbell-or-dumbbells__set_3"><span>Set 3</span></label><label class="setbox"><input type="checkbox" data-key="week8__friday__romanian-deadlift-barbell-or-dumbbells__set_4"><span>Set 4</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="week8__friday__romanian-deadlift-barbell-or-dumbbells__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: Add 10 lbs (bar) or 5 lbs (dumbbells) from Week 7 if form was solid.</div>
+      <div class="pattern">Pattern: hinge</div>
+    </div>
+    <div class="exercise">
+      <div class="ex-head">
+        <div class="ex-title"><strong>Single-Leg RDL (dumbbell, pause at bottom)</strong> <span class="badge">3 sets • 10 each leg reps • 60 sec rest • Tempo: 3-2-1</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="week8__friday__single-leg-rdl-dumbbell-pause-at-bottom__equip">
+            <option value="home">At home: Dumbbell/Bands</option>
+            <option value="gym">At gym: Barbell/Machines</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="week8__friday__single-leg-rdl-dumbbell-pause-at-bottom__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="week8__friday__single-leg-rdl-dumbbell-pause-at-bottom__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="week8__friday__single-leg-rdl-dumbbell-pause-at-bottom__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="week8__friday__single-leg-rdl-dumbbell-pause-at-bottom__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="week8__friday__single-leg-rdl-dumbbell-pause-at-bottom__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="week8__friday__single-leg-rdl-dumbbell-pause-at-bottom__set_3"><span>Set 3</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="week8__friday__single-leg-rdl-dumbbell-pause-at-bottom__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: Increase weight by 5 lbs when balance is solid.</div>
+      <div class="pattern">Pattern: hinge|glute</div>
+    </div>
+    <div class="exercise">
+      <div class="ex-head">
+        <div class="ex-title"><strong>Bulgarian Split Squat (rear foot elevated)</strong> <span class="badge">4 sets • 10 each leg reps • 60 sec rest • Tempo: 3-0-1</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="week8__friday__bulgarian-split-squat-rear-foot-elevated__equip">
+            <option value="home">At home: Dumbbell/Bands</option>
+            <option value="gym">At gym: Barbell/Machines</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="week8__friday__bulgarian-split-squat-rear-foot-elevated__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="week8__friday__bulgarian-split-squat-rear-foot-elevated__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="week8__friday__bulgarian-split-squat-rear-foot-elevated__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="week8__friday__bulgarian-split-squat-rear-foot-elevated__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="week8__friday__bulgarian-split-squat-rear-foot-elevated__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="week8__friday__bulgarian-split-squat-rear-foot-elevated__set_3"><span>Set 3</span></label><label class="setbox"><input type="checkbox" data-key="week8__friday__bulgarian-split-squat-rear-foot-elevated__set_4"><span>Set 4</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="week8__friday__bulgarian-split-squat-rear-foot-elevated__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: Add 5 lbs per dumbbell if 3x10 was clean last week.</div>
+      <div class="pattern">Pattern: squat|glute</div>
+    </div>
+    <div class="exercise">
+      <div class="ex-head">
+        <div class="ex-title"><strong data-gym-name="Lying Hamstring Curl (machine)" data-home-name="Dumbbell Hamstring Curl (lying face down on bench or floor, dumbbell gripped between feet, curl up)">Lying Hamstring Curl (machine)</strong> <span class="badge">3 sets • 12-15 reps • 60 sec rest • Tempo: 2-1-3</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="week8__friday__lying-hamstring-curl-machine__equip">
+            <option value="home">At home: Dumbbell/Bands</option>
+            <option value="gym">At gym: Barbell/Machines</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="week8__friday__lying-hamstring-curl-machine__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="week8__friday__lying-hamstring-curl-machine__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="week8__friday__lying-hamstring-curl-machine__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="week8__friday__lying-hamstring-curl-machine__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="week8__friday__lying-hamstring-curl-machine__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="week8__friday__lying-hamstring-curl-machine__set_3"><span>Set 3</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="week8__friday__lying-hamstring-curl-machine__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: Increase when you hit 15 reps with a 3-second lower on all reps.</div>
+      <div class="pattern">Pattern: hinge</div>
+    </div>
+    <div class="exercise">
+      <div class="ex-head">
+        <div class="ex-title"><strong>Glute Bridge with Band (pulse + hold)</strong> <span class="badge">3 sets • 10 pulses + 10 sec hold reps • 45 sec rest • Tempo: pulse then isometric</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="week8__friday__glute-bridge-with-band-pulse-hold__equip">
+            <option value="home">At home: Dumbbell/Bands</option>
+            <option value="gym">At gym: Barbell/Machines</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="week8__friday__glute-bridge-with-band-pulse-hold__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="week8__friday__glute-bridge-with-band-pulse-hold__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="week8__friday__glute-bridge-with-band-pulse-hold__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="week8__friday__glute-bridge-with-band-pulse-hold__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="week8__friday__glute-bridge-with-band-pulse-hold__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="week8__friday__glute-bridge-with-band-pulse-hold__set_3"><span>Set 3</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="week8__friday__glute-bridge-with-band-pulse-hold__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: Add a plate across hips or move to single-leg.</div>
+      <div class="pattern">Pattern: glute</div>
+    </div>
+    <div class="exercise">
+      <div class="ex-head">
+        <div class="ex-title"><strong>Dead Bug (slow and controlled)</strong> <span class="badge">3 sets • 8 each side reps • 45 sec rest • Tempo: 4-count lower, 4-count raise</span></div>
+        <div class="equip">
+          <label>Equipment</label>
+          <select data-key="week8__friday__dead-bug-slow-and-controlled__equip">
+            <option value="home">At home: Dumbbell/Bands</option>
+            <option value="gym">At gym: Barbell/Machines</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="trackers">
+        <label>Weight <input type="text" inputmode="decimal" placeholder="e.g., 25 lb" data-key="week8__friday__dead-bug-slow-and-controlled__weight"></label>
+        <label>Reps <input type="number" min="1" step="1" placeholder="e.g., 12" data-key="week8__friday__dead-bug-slow-and-controlled__reps"></label>
+        <label>RPE <input type="number" min="1" max="10" step="1" placeholder="1–10" data-key="week8__friday__dead-bug-slow-and-controlled__rpe"></label>
+      </div>
+
+      <div class="sets"><label class="setbox"><input type="checkbox" data-key="week8__friday__dead-bug-slow-and-controlled__set_1"><span>Set 1</span></label><label class="setbox"><input type="checkbox" data-key="week8__friday__dead-bug-slow-and-controlled__set_2"><span>Set 2</span></label><label class="setbox"><input type="checkbox" data-key="week8__friday__dead-bug-slow-and-controlled__set_3"><span>Set 3</span></label></div>
+
+      <label class="notes">Notes
+        <textarea rows="2" placeholder="Form cues, PRs, adjustments…" data-key="week8__friday__dead-bug-slow-and-controlled__notes"></textarea>
+      </label>
+
+      <div class="cue">Progression cue: Add a light weight in extended hand when lower back stays flat for all reps.</div>
+      <div class="pattern">Pattern: core</div>
+    </div>
+    </section>
+    <section class="mini">
+      <h2>Mini Session — Core &amp; Parasympathetic Recovery</h2>
+      <p>10-15 min &bull; Any day — morning, between sessions, or before bed</p>
+      <ul><li>90/90 Hip Stretch — 60 sec each side, deep breathing</li><li>Cat-Cow with Rib Cage Breath — 10 slow reps</li><li>Dead Bug — 5 each side, slow and intentional</li></ul>
+    </section>
+    <section class="walk">
+      <h2>Daily Walks</h2>
+      <p>You added a set to every big lift this week — that's real volume, and your body is working hard to recover. Your daily walk is doing more for your hormones than you know. Keep it easy, keep it consistent.</p>
+    </section>
+
+    <section class="footer">
+      <p class="liblinks">
+        New or jumping in mid-cycle? Explore the phase libraries:
+        <a href="https://rswweeklyplans.github.io/rsw-workouts/library/endurance">Endurance</a> |
+        <a href="https://rswweeklyplans.github.io/rsw-workouts/library/strength">Strength</a> |
+        <a href="https://rswweeklyplans.github.io/rsw-workouts/library/hypertrophy">Hypertrophy</a>
+      </p>
+      <p style="color:#4b5563;font-size:.85rem">Tip: your entries are stored on your device (localStorage). Clearing site data will reset your logs.</p>
+    </section>
+  </div>
+</div>
+
+<script>
+  var CONFIG = {
+    accessCode: 'RISE',
+    weekLocked: true,
+    weekNumber: 8
+  };
+
+  function tryUnlock() {
+    var val = document.getElementById('access-input').value.trim().toUpperCase();
+    if (val === CONFIG.accessCode) {
+      localStorage.setItem('rsw_week' + CONFIG.weekNumber + '_unlocked', 'true');
+      showApp();
+    } else {
+      document.getElementById('lock-error').style.display = '';
+    }
+  }
+
+  function showApp() {
+    document.getElementById('lock-screen').style.display = 'none';
+    document.getElementById('main-content').style.display = '';
+    showDay(1);
+    restore();
+    document.querySelectorAll('.equip select').forEach(applyEquipName);
+    document.querySelectorAll('.completion-cb').forEach(applyCompletionStyle);
+  }
+
+  var currentDay = 1;
+
+  function showDay(dayNum) {
+    currentDay = dayNum;
+    document.querySelectorAll('[data-day-btn]').forEach(function(p) { p.classList.remove('active'); });
+    var pill = document.querySelector('[data-day-btn="' + dayNum + '"]');
+    if (pill) pill.classList.add('active');
+    document.querySelectorAll('.workout').forEach(function(s) {
+      s.style.display = (s.getAttribute('data-day') == dayNum) ? '' : 'none';
+    });
+  }
+
+  var restore = function() {
+    document.querySelectorAll('[data-key]').forEach(function(el) {
+      var key = el.getAttribute('data-key');
+      if (el.type === 'checkbox') {
+        el.checked = localStorage.getItem(key) === '1';
+      } else {
+        var v = localStorage.getItem(key);
+        if (v !== null) el.value = v;
+      }
+    });
+  };
+
+  var persist = function(e) {
+    var el = e.target;
+    if (!el || !el.hasAttribute('data-key')) return;
+    var key = el.getAttribute('data-key');
+    var val = (el.type === 'checkbox') ? (el.checked ? '1' : '0') : el.value;
+    localStorage.setItem(key, val);
+  };
+
+  function applyEquipName(select) {
+    var card = select.closest('.exercise');
+    if (!card) return;
+    var strong = card.querySelector('.ex-title strong');
+    if (!strong || !strong.hasAttribute('data-gym-name')) return;
+    strong.textContent = select.value === 'home'
+      ? strong.getAttribute('data-home-name')
+      : strong.getAttribute('data-gym-name');
+  }
+
+  function applyCompletionStyle(cb) {
+    var strip = cb.closest('.completion-strip');
+    if (!strip) return;
+    var text = strip.querySelector('.completion-text');
+    if (cb.checked) {
+      strip.classList.add('done');
+      if (text) text.textContent = 'Completed ✓';
+    } else {
+      strip.classList.remove('done');
+      if (text) text.textContent = 'Mark as Complete';
+    }
+  }
+
+  window.addEventListener('change', function(e) {
+    persist(e);
+    if (e.target && e.target.closest && e.target.closest('.equip')) {
+      applyEquipName(e.target);
+    }
+    if (e.target && e.target.classList.contains('completion-cb')) {
+      applyCompletionStyle(e.target);
+    }
+  }, true);
+
+  window.addEventListener('DOMContentLoaded', function() {
+    if (CONFIG.weekLocked &&
+        localStorage.getItem('rsw_week' + CONFIG.weekNumber + '_unlocked') !== 'true') {
+      var inp = document.getElementById('access-input');
+      if (inp) inp.addEventListener('keydown', function(e) { if (e.key === 'Enter') tryUnlock(); });
+      return;
+    }
+    showApp();
+  });
+</script>
+</body>
+</html>
