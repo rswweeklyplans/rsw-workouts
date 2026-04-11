@@ -78,6 +78,8 @@ git remote add origin https://{token}@github.com/rswweeklyplans/rsw-workouts.git
 Copy files to correct folder (weeks/ or 4xweek/)
 git add, commit, push to main
 
+Important: The git repository is rooted at the home directory (~/) not inside the Circle-platform-workouts project folder. Files must be copied to the correct folder at the git root (4xweek/, weeks/) before committing. Do not try to init a new repo inside Circle-platform-workouts.
+
 ## Important Rules
 - Never modify phase2_workout_plan.html (master source file)
 - Always verify lock screen works before pushing
